@@ -1,0 +1,13 @@
+{
+  "dependencies": {
+    "express": "^4.16.3"
+  },
+  "name": "xarife",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Marcos Cassiano <marcoscssno@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "node server/server.js"
+  }
+}
