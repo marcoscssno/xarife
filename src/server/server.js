@@ -1,5 +1,10 @@
-var express = require('express');
-var path = require('path');
+import express from 'express'
+import path from 'path'
+import morgan from 'morgan'
+import bodyParser from 'body-parser'
+import mongoose from 'mongoose'
+import passport from 'passport'
+import MyLocalStrategy from './strategies/login'
 
 import React from 'react'
 import { renderToString } from 'react-dom/server'
@@ -18,6 +23,12 @@ import App from '../shared/App'
 import api from './api'
 
 var app = express();
+
+app.use(morgan('combined'))
+app.use(bodyParser.urlencoded({extended: true}))
+
+app.use(passport.initialize())
+passport.use('login', MyLocalStrategy)
 
 app.use(express.static(path.resolve(__dirname, '../client')));
 
@@ -57,10 +68,17 @@ const renderStuff = (req, res) => {
 
 app.use('/api', api)
 
-app.use(function (req, res) {
+app.use( (req, res ) => {
     res.send(renderStuff(req))
 });
 
-app.listen(8080, function () {
-    console.log('Xarife rodando em http://localhost:8080');
-});
+
+mongoose.connect('mongodb://localhost/xarife').then(
+    () => {
+        app.listen(8080, () => {
+            console.log('Xarife rodando em http://localhost:8080');
+        });
+    },
+    err => console.error(err)
+)
+

@@ -1,24 +1,12 @@
-const initialState = {
-    count: 0
-}
+import { combineReducers } from 'redux'
 
-const rootReducer = (state = initialState, action) => {
-    switch (action.type) {
-        case 'INCREMENT':
-        console.log('incrementing')
-        return {
-            count: state.count + 1
-        }
+import { reducer as formReducer } from 'redux-form'
 
-        case 'DECREMENT':
-        console.log('decrementing')
-        return {
-            count: state.count - 1
-        }
+import counterReducer from './counterReducer'
 
-        default:
-        return state
-    }
-}
+const rootReducer = combineReducers ({
+    counter: counterReducer,
+    form: formReducer
+})
 
-export default rootReducer
+export default rootReducer 

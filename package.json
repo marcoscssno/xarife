@@ -5,18 +5,26 @@
   "author": "Marcos Cassiano <marcoscssno@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "build": "yarn run build-server && yarn run build-client",
     "build-server": "node_modules/.bin/webpack --config webpack.config.server.js",
-    "build-client": "node_modules/.bin/webpack --config webpack.config.client.js"
+    "build-client": "node_modules/.bin/webpack --config webpack.config.client.js",
+    "prod": "node dist/server/server.js"
   },
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.2",
     "express": "^4.16.3",
-    "mongoose": "^5.0.16",
+    "jsonwebtoken": "^8.2.1",
+    "mongoose": "^5.0.17",
+    "morgan": "^1.9.0",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.2.2",
-    "redux": "^4.0.0"
+    "redux": "^4.0.0",
+    "redux-form": "^7.3.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.2",

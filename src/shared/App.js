@@ -7,6 +7,7 @@ import { addOne, takeOne } from './actions'
 import { Route, Link, withRouter } from 'react-router-dom'
 
 import About from './About'
+import LoginPage from './LoginPage'
 
 const App = (props) => (
     <div>
@@ -17,6 +18,7 @@ const App = (props) => (
         <Link to='/about'>About</Link>
         <Link to='/'>App</Link>
         <Route path='/about' component={About} />
+        <Route path='/login' component={LoginPage} />
     </div>
 )
 
