@@ -2,14 +2,23 @@ import axios from 'axios'
 import qs from 'qs'
 
 export const LOGIN_REQUEST = 'LOGIN_REQUEST'
-export const LOGIN_RESPONSE = 'LOGIN_RESPONSE'
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS'
+export const LOGIN_FAILED = 'LOGIN_FAILED'
 
-function loginResponse(response) {
+function loginSuccess(response) {
     return {
-        type: LOGIN_RESPONSE,
+        type: LOGIN_SUCCESS,
         response
     }
 }
+
+function loginFailed(response) {
+    return {
+        type: LOGIN_FAILED,
+        response
+    }
+}
+
 
 export function loginRequest(data) {
     const { username, password } = data
@@ -19,7 +28,7 @@ export function loginRequest(data) {
             username: username,
             password: password
         }))
-        .then(response => dispatch(loginResponse(response.data)))
-        .catch(error => console.log(error.request))
+        .then(response => dispatch(loginSuccess(response.data)))
+        .catch(error => dispatch(loginFailed(error.response.data)))
     }
 }

@@ -18,11 +18,13 @@ class LoginPage extends React.Component {
     }
 
     render() {
-        const { username, password } = this.props
+        const { isLoading, success, message } = this.props
+        const color = success ? 'green' : 'red'
         return (
             <div>
-                <p>{username}</p>
-                <p>{password}</p>
+                <p style={{color}}>Result</p>
+                { isLoading ? <p>Carregando</p> : false }
+                <p>Mensagem: { message ? message : 'Nenhuma' }</p>
                 <LoginForm onSubmit={this.submit} />
             </div>
         )
@@ -31,8 +33,9 @@ class LoginPage extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        username: state.auth.username,
-        password: state.auth.password
+        isLoading: state.auth.isLoading,
+        success: state.auth.success,
+        message: state.auth.message
     }
 }
 

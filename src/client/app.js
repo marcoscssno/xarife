@@ -13,6 +13,14 @@ delete window.__PRELOADED_STATE__
 
 const store = createStore(rootReducer, preloadedState, applyMiddleware(thunkMiddleware))
 
+if (module.hot) {
+    // Enable Webpack hot module replacement for reducers
+    module.hot.accept('../shared/reducers/rootReducer', () => {
+        const nextRootReducer = require('../shared/reducers/rootReducer');
+        store.replaceReducer(nextRootReducer);
+    });
+}
+
 import { BrowserRouter } from 'react-router-dom'
 
 import App from '../shared/App'

@@ -1,21 +1,36 @@
 import { LOGIN_REQUEST } from '../actions/auth'
-import { LOGIN_RESPONSE } from '../actions/auth'
+import { LOGIN_SUCCESS } from '../actions/auth'
+import { LOGIN_FAILED } from '../actions/auth'
 
 const initialState = {
-    username: 'ninguem',
-    password: 'nenhuma'
+    isLoading: false,
+    success: false,
+    message: ''
 }
 
 const authReducer = (state = initialState, action) => {
     switch (action.type) {
         case LOGIN_REQUEST:
         return {
-            username: action.username,
-            password: action.password
+            ...state,
+            isLoading: true
         }
 
-        case LOGIN_RESPONSE:
-        console.log(action.response)
+        case LOGIN_SUCCESS:
+        return {
+            ...state,
+            isLoading: false,
+            success: true,
+            message: 'Congratulations!'
+        }
+
+        case LOGIN_FAILED:
+        return {
+            ...state,
+            isLoading: false,
+            success: false,
+            message: action.response.message
+        }
 
         default:
         return state
