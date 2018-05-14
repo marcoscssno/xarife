@@ -10,11 +10,13 @@ import React from 'react'
 import { renderToString } from 'react-dom/server'
 
 import { Provider } from 'react-redux'
-import { createStore } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
+
+import thunkMiddleware from 'redux-thunk'
 
 import rootReducer from '../shared/reducers/rootReducer'
 
-const store = createStore(rootReducer)
+const store = createStore(rootReducer, applyMiddleware(thunkMiddleware))
 
 import { StaticRouter } from 'react-router'
 
@@ -23,6 +25,17 @@ import App from '../shared/App'
 import api from './api'
 
 var app = express();
+
+import webpack from 'webpack'
+import config from '../../webpack.config.dev'
+import webpackDevMiddleware from 'webpack-dev-middleware'
+import webpackHotMiddleware from 'webpack-hot-middleware'
+
+if(process.env.NODE_ENV === 'development') {
+    const compiler = webpack(config)
+    app.use(webpackDevMiddleware(compiler, {publicPath: config.output.publicPath}))
+    app.use(webpackHotMiddleware(compiler)) 
+}
 
 app.use(morgan('combined'))
 app.use(bodyParser.urlencoded({extended: true}))
@@ -45,15 +58,12 @@ const renderStuff = (req, res) => {
         </head>
         <body>
             <h1>Hello, world!</h1>
-            <div id="app">
-            ${renderToString (
+            <div id="app">${renderToString(
                 <Provider store={store}>
                     <StaticRouter location={req.url} context={context}>
                         <App />
                     </StaticRouter>
-                </Provider>
-            )}
-            </div>
+                </Provider>)}</div>
 
             <script src="/app.js"></script>
             <script>

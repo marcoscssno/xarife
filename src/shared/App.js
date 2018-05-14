@@ -2,16 +2,18 @@ import React from 'react'
 
 import { connect } from 'react-redux'
 
-import { addOne, takeOne } from './actions'
+import { addOne, takeOne } from './actions/counter'
 
 import { Route, Link, withRouter } from 'react-router-dom'
 
 import About from './About'
 import LoginPage from './LoginPage'
 
+import { hot } from 'react-hot-loader'
+
 const App = (props) => (
     <div>
-        <h1>Hello, Guys!</h1>
+        <h1>Hello, World!</h1>
         <p>{props.count}</p>
         <button onClick={() => props.onClickAdd()}>Add</button>
         <button onClick={() => props.onClickRemove()}>Remove</button>
@@ -24,7 +26,7 @@ const App = (props) => (
 
 const mapStateToProps = (state) => {
     return {
-        count: state.count
+        count: state.counter.count
     }
 }
 
@@ -35,4 +37,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App))
+export default hot(module)(withRouter(connect(mapStateToProps, mapDispatchToProps)(App)))

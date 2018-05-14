@@ -1,10 +1,9 @@
 var path = require('path');
-var nodeExternals = require('webpack-node-externals');
 
 module.exports = {
-    entry: './src/client/app.js',
-
     mode: 'production',
+    
+    entry: './src/client/app.js',
 
     module: {
         rules: [

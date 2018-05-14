@@ -9,6 +9,7 @@ let LoginForm = props => {
         <form onSubmit={handleSubmit}>
             <Field name="username" component="input" type="text" />
             <Field name="password" component="input" type="password" />
+            <button type="submit">Login</button>
         </form>
     )
 }
@@ -16,3 +17,5 @@ let LoginForm = props => {
 LoginForm = reduxForm({
     form: 'login'
 })(LoginForm)
+
+export default LoginForm
