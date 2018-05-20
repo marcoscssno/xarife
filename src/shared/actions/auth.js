@@ -28,7 +28,10 @@ export function loginRequest(data) {
             username: username,
             password: password
         }))
-        .then(response => dispatch(loginSuccess(response.data)))
+        .then(response => {
+            localStorage.setItem('token', response.data.token)
+            dispatch(loginSuccess(response.data))
+        })
         .catch(error => dispatch(loginFailed(error.response.data)))
     }
 }

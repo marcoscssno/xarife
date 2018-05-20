@@ -54,10 +54,11 @@ const renderStuff = (req, res) => {
             <meta charset="utf-8">
             <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+            <link rel="stylesheet" href="/fonts/material-icons/material-icons.css">
+
             <title>Xarife</title>
         </head>
         <body>
-            <h1>Hello, world!</h1>
             <div id="app">${renderToString(
                 <Provider store={store}>
                     <StaticRouter location={req.url} context={context}>
@@ -83,7 +84,7 @@ app.use( (req, res ) => {
 });
 
 
-mongoose.connect('mongodb://localhost/xarife').then(
+mongoose.connect('mongodb://root:%24Citron36@localhost/xarife').then(
     () => {
         app.listen(8080, () => {
             console.log('Xarife rodando em http://localhost:8080');

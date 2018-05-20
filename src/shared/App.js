@@ -6,19 +6,25 @@ import { addOne, takeOne } from './actions/counter'
 
 import { Route, Link, withRouter } from 'react-router-dom'
 
+import Navbar from './components/Navbar'
 import About from './About'
 import LoginPage from './LoginPage'
 
 import { hot } from 'react-hot-loader'
 
+import Button from '@material-ui/core/Button';
+
 const App = (props) => (
     <div>
+        <Navbar title="Xarife" />
         <h1>Hello, World!</h1>
         <p>{props.count}</p>
         <button onClick={() => props.onClickAdd()}>Add</button>
         <button onClick={() => props.onClickRemove()}>Remove</button>
         <Link to='/about'>About</Link>
         <Link to='/'>App</Link>
+        <Link to='/login'>Login</Link>
+        <Button color="primary" component={Link} to="/login">Login</Button>
         <Route path='/about' component={About} />
         <Route path='/login' component={LoginPage} />
     </div>
