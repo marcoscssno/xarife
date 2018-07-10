@@ -24,6 +24,8 @@ import App from '../shared/App'
 
 import api from './api'
 
+import cfg from '../config'
+
 var app = express();
 
 import webpack from 'webpack'
@@ -84,7 +86,7 @@ app.use( (req, res ) => {
 });
 
 
-mongoose.connect('mongodb://root:%24Citron36@localhost/xarife').then(
+mongoose.connect(cfg.dburi, cfg.dbauth).then(
     () => {
         app.listen(8080, () => {
             console.log('Xarife rodando em http://localhost:8080');
