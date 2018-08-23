@@ -1,5 +1,6 @@
 var path = require('path');
 var nodeExternals = require('webpack-node-externals');
+var CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
     entry: './src/server/server.js',
@@ -21,6 +22,10 @@ module.exports = {
             { test: /\.jsx$/, exclude: /node_modules/, loader: "babel-loader" }
         ]
     },
+
+    plugins: [
+        new CleanWebpackPlugin('dist/server')
+    ],
     
     output: {
         path: path.resolve(__dirname, 'dist/server'),

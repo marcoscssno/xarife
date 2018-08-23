@@ -1,4 +1,5 @@
 var path = require('path');
+var CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
     mode: 'production',
@@ -26,6 +27,10 @@ module.exports = {
             }
         ]
     },
+
+    plugins: [
+        new CleanWebpackPlugin('dist/client')
+    ],
     
     output: {
         path: path.resolve(__dirname, 'dist/client'),
