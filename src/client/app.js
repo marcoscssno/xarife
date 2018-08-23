@@ -13,7 +13,7 @@ delete window.__PRELOADED_STATE__
 
 const store = createStore(rootReducer, preloadedState, applyMiddleware(thunkMiddleware))
 
-import 'app.css'
+import './app.css'
 
 if (module.hot) {
     // Enable Webpack hot module replacement for reducers
