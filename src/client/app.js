@@ -13,6 +13,7 @@ delete window.__PRELOADED_STATE__
 
 const store = createStore(rootReducer, preloadedState, applyMiddleware(thunkMiddleware))
 
+import 'normalize.css'
 import './app.css'
 
 if (module.hot) {

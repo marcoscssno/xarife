@@ -1,5 +1,6 @@
 var path = require('path');
 var CleanWebpackPlugin = require('clean-webpack-plugin');
+var MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
     mode: 'production',
@@ -10,9 +11,10 @@ module.exports = {
         rules: [
             {
                 test: /\.css$/,
-                exclude: /node_modules/,
                 use: [
-                    'style-loader',
+                    {
+                        loader: MiniCssExtractPlugin.loader
+                    },
                     'css-loader'
                 ]
             },
@@ -29,7 +31,11 @@ module.exports = {
     },
 
     plugins: [
-        new CleanWebpackPlugin('dist/client')
+        new CleanWebpackPlugin('dist/client'),
+        new MiniCssExtractPlugin({
+            filename: '[name].css',
+            chunkFilename: '[id].css'
+        })
     ],
     
     output: {
