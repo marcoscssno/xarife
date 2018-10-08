@@ -26,6 +26,12 @@ if (module.hot) {
 
 import { BrowserRouter } from 'react-router-dom'
 
+import { loginSuccess } from '../shared/actions/auth'
+
+if(localStorage.getItem('token')) {
+    store.dispatch(loginSuccess());
+}
+
 import App from '../shared/App'
 
 hydrate(<Provider store={store}><BrowserRouter><App /></BrowserRouter></Provider>, document.getElementById('app'));

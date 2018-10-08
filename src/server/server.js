@@ -10,13 +10,8 @@ import React from 'react'
 import { renderToString } from 'react-dom/server'
 
 import { Provider } from 'react-redux'
-import { createStore, applyMiddleware } from 'redux'
 
-import thunkMiddleware from 'redux-thunk'
-
-import rootReducer from '../shared/reducers/rootReducer'
-
-const store = createStore(rootReducer, applyMiddleware(thunkMiddleware))
+import store from './store'
 
 import { StaticRouter } from 'react-router'
 

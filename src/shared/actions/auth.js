@@ -4,11 +4,11 @@ import qs from 'qs'
 export const LOGIN_REQUEST = 'LOGIN_REQUEST'
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS'
 export const LOGIN_FAILED = 'LOGIN_FAILED'
+export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS'
 
-function loginSuccess(response) {
+export function loginSuccess() {
     return {
-        type: LOGIN_SUCCESS,
-        response
+        type: LOGIN_SUCCESS
     }
 }
 
@@ -16,6 +16,12 @@ function loginFailed(response) {
     return {
         type: LOGIN_FAILED,
         response
+    }
+}
+
+function logoutSuccess() {
+    return {
+        type: LOGOUT_SUCCESS
     }
 }
 
@@ -30,8 +36,16 @@ export function loginRequest(data) {
         }))
         .then(response => {
             localStorage.setItem('token', response.data.token)
-            dispatch(loginSuccess(response.data))
+            dispatch(loginSuccess())
         })
         .catch(error => dispatch(loginFailed(error.response.data)))
+    }
+}
+
+export function logoutRequest(history) {
+    return dispatch => {
+        localStorage.removeItem('token')
+        history.push('/')
+        dispatch(logoutSuccess())
     }
 }
