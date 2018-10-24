@@ -8,6 +8,8 @@ import thunkMiddleware from 'redux-thunk'
 
 import rootReducer from '../shared/reducers/rootReducer'
 
+import jwt from 'jsonwebtoken'
+
 const preloadedState = window.__PRELOADED_STATE__
 delete window.__PRELOADED_STATE__
 
@@ -26,10 +28,19 @@ if (module.hot) {
 
 import { BrowserRouter } from 'react-router-dom'
 
-import { loginSuccess } from '../shared/actions/auth'
+import { loginSuccess, loginFailed } from '../shared/actions/auth'
 
-if(localStorage.getItem('token')) {
-    store.dispatch(loginSuccess());
+const token = localStorage.getItem('token')
+
+if(token) {
+    jwt.verify(token, 'ILoveMyCat', function (error, decoded) {
+        if (error) {
+            store.dispatch(loginFailed({message: error.message}))
+        }
+        else {
+            store.dispatch(loginSuccess())
+        }
+    })
 }
 
 import App from '../shared/App'

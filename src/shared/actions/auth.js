@@ -12,14 +12,14 @@ export function loginSuccess() {
     }
 }
 
-function loginFailed(response) {
+export function loginFailed(response) {
     return {
         type: LOGIN_FAILED,
         response
     }
 }
 
-function logoutSuccess() {
+export function logoutSuccess() {
     return {
         type: LOGOUT_SUCCESS
     }

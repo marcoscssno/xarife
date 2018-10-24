@@ -31,10 +31,10 @@ const MyLocalStrategy = new LocalStrategy ({
             }
 
             const payload = {
-                sub: user._id
+                id: user._id
             }
 
-            const token = jwt.sign( payload, 'ILoveMyCat')
+            const token = jwt.sign(payload, 'ILoveMyCat', { expiresIn: '2m'})
 
             const data = {
                 username

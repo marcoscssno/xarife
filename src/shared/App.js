@@ -65,6 +65,6 @@ const PrivateRoute = ({ component: Component, isAuthenticated, ...rest }) => (
         )
       }
     />
-  );
+);
 
 export default hot(module)(withRouter(connect(mapStateToProps, mapDispatchToProps)(App)))
