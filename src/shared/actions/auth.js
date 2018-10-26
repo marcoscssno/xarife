@@ -5,10 +5,13 @@ export const LOGIN_REQUEST = 'LOGIN_REQUEST'
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS'
 export const LOGIN_FAILED = 'LOGIN_FAILED'
 export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS'
+export const TOKEN_IS_INVALID = 'TOKEN_IS_INVALID'
+export const TOKEN_IS_VALID = 'TOKEN_IS_VALID'
 
-export function loginSuccess() {
+export function loginSuccess(data) {
     return {
-        type: LOGIN_SUCCESS
+        type: LOGIN_SUCCESS,
+        data
     }
 }
 
@@ -36,7 +39,7 @@ export function loginRequest(data) {
         }))
         .then(response => {
             localStorage.setItem('token', response.data.token)
-            dispatch(loginSuccess())
+            dispatch(loginSuccess(response.data.data))
         })
         .catch(error => dispatch(loginFailed(error.response.data)))
     }
@@ -45,7 +48,20 @@ export function loginRequest(data) {
 export function logoutRequest(history) {
     return dispatch => {
         localStorage.removeItem('token')
-        history.push('/')
+        history.push('/login')
         dispatch(logoutSuccess())
+    }
+}
+
+export function tokenIsInvalid() {
+    return {
+        type: TOKEN_IS_INVALID
+    }
+}
+
+export function tokenIsValid(data) {
+    return {
+        type: TOKEN_IS_VALID,
+        data
     }
 }

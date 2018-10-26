@@ -35,7 +35,7 @@ router.route('/users')
 })
 
 router.post('/login', (req, res, next) => {
-    return passport.authenticate('login', ( err, token, userData ) => {
+    return passport.authenticate('login', ( err, token, data ) => {
         if ( err ) {
             if ( err.name === 'IncorrectCredentialsError' ) {
                 return res.status(400).json({
@@ -54,7 +54,7 @@ router.post('/login', (req, res, next) => {
             success: true,
             message: 'You have been successfully logged in!',
             token,
-            user: userData
+            data
         })
     })(req, res, next)
 })

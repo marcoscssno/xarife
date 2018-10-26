@@ -13,6 +13,32 @@ class LoginPage extends React.Component {
         this.submit = this.submit.bind(this)
     }
 
+    componentDidMount () {
+        if (this.props.success == true) {
+            if (typeof this.props.location.state != "undefined") {
+                if (typeof this.props.location.state.from != "undefined") {
+                    this.props.history.push(this.props.location.state.from.pathname)
+                }
+            }
+            else {
+                this.props.history.push('/')
+            }
+        }
+    }
+
+    componentDidUpdate () {
+        if (this.props.success == true) {
+            if (typeof this.props.location.state != "undefined") {
+                if (typeof this.props.location.state.from != "undefined") {
+                    this.props.history.push(this.props.location.state.from.pathname)
+                }
+            }
+            else {
+                this.props.history.push('/')
+            }
+        }
+    }
+
     submit = (data) => {
         this.props.loginRequest(data)
     }

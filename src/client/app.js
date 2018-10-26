@@ -28,17 +28,20 @@ if (module.hot) {
 
 import { BrowserRouter } from 'react-router-dom'
 
-import { loginSuccess, loginFailed } from '../shared/actions/auth'
+import { tokenIsValid, tokenIsInvalid } from '../shared/actions/auth'
 
 const token = localStorage.getItem('token')
 
 if(token) {
     jwt.verify(token, 'ILoveMyCat', function (error, decoded) {
         if (error) {
-            store.dispatch(loginFailed({message: error.message}))
+            store.dispatch(tokenIsInvalid())
         }
         else {
-            store.dispatch(loginSuccess())
+            store.dispatch(tokenIsValid({
+                timestamp: decoded.iat,
+                expiration: decoded.exp
+            }))
         }
     })
 }
