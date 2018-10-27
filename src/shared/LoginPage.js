@@ -14,7 +14,7 @@ class LoginPage extends React.Component {
     }
 
     componentDidMount () {
-        if (this.props.success == true) {
+        if (this.props.isAuthenticated == true) {
             if (typeof this.props.location.state != "undefined") {
                 if (typeof this.props.location.state.from != "undefined") {
                     this.props.history.push(this.props.location.state.from.pathname)
@@ -27,7 +27,7 @@ class LoginPage extends React.Component {
     }
 
     componentDidUpdate () {
-        if (this.props.success == true) {
+        if (this.props.isAuthenticated == true) {
             if (typeof this.props.location.state != "undefined") {
                 if (typeof this.props.location.state.from != "undefined") {
                     this.props.history.push(this.props.location.state.from.pathname)
@@ -59,6 +59,7 @@ class LoginPage extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
+        isAuthenticated: state.auth.isAuthenticated,
         isLoading: state.auth.isLoading,
         success: state.auth.success,
         message: state.auth.message
