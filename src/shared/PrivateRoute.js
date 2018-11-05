@@ -4,22 +4,28 @@ import { connect } from 'react-redux'
 
 import { Route, Redirect, withRouter } from 'react-router-dom'
 
-import { tokenIsInvalid } from './actions/auth'
+import { tokenIsInvalid, tokenIsNull } from './actions/auth'
 
 class PrivateRoute extends React.Component {
 
     componentDidMount () {
-        const { isAuthenticated, expiration, tokenIsInvalid } = this.props
+        const { isAuthenticated, expiration, tokenIsInvalid, tokenIsNull } = this.props
 
-        if (expiration <= Math.floor(Date.now() / 1000)) {
+        if (expiration === null) {
+            tokenIsNull()
+        }
+        else if (expiration <= Math.floor(Date.now() / 1000)) {
             tokenIsInvalid()
         }
     }
 
     componentDidUpdate () {
-        const { isAuthenticated, expiration, tokenIsInvalid } = this.props
+        const { isAuthenticated, expiration, tokenIsInvalid, tokenIsNull } = this.props
 
-        if (expiration <= Math.floor(Date.now() / 1000)) {
+        if (expiration === null) {
+            tokenIsNull()
+        }
+        else if (expiration <= Math.floor(Date.now() / 1000)) {
             tokenIsInvalid()
         }
     }
@@ -59,7 +65,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        tokenIsInvalid: () => dispatch(tokenIsInvalid())
+        tokenIsInvalid: () => dispatch(tokenIsInvalid()),
+        tokenIsNull: () => dispatch(tokenIsNull())
     }
 }
 

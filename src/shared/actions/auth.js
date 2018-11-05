@@ -7,6 +7,7 @@ export const LOGIN_FAILED = 'LOGIN_FAILED'
 export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS'
 export const TOKEN_IS_INVALID = 'TOKEN_IS_INVALID'
 export const TOKEN_IS_VALID = 'TOKEN_IS_VALID'
+export const TOKEN_IS_NULL = 'TOKEN_IS_NULL'
 
 export function loginSuccess(data) {
     return {
@@ -56,6 +57,12 @@ export function logoutRequest(history) {
 export function tokenIsInvalid() {
     return {
         type: TOKEN_IS_INVALID
+    }
+}
+
+export function tokenIsNull() {
+    return {
+        type: TOKEN_IS_NULL
     }
 }
 

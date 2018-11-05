@@ -28,13 +28,14 @@ if (module.hot) {
 
 import { BrowserRouter } from 'react-router-dom'
 
-import { tokenIsValid, tokenIsInvalid } from '../shared/actions/auth'
+import { tokenIsValid, tokenIsInvalid, tokenIsNull } from '../shared/actions/auth'
 
 const token = localStorage.getItem('token')
 
-if(token) {
+if(token !== null) {
     jwt.verify(token, 'ILoveMyCat', function (error, decoded) {
         if (error) {
+            console.log("invalid yes")
             store.dispatch(tokenIsInvalid())
         }
         else {
@@ -44,6 +45,9 @@ if(token) {
             }))
         }
     })
+}
+else {
+    store.dispatch(tokenIsNull())
 }
 
 import App from '../shared/App'

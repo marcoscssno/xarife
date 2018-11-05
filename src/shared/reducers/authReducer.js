@@ -4,6 +4,7 @@ import { LOGIN_FAILED } from '../actions/auth'
 import { LOGOUT_SUCCESS } from '../actions/auth'
 import { TOKEN_IS_INVALID } from '../actions/auth'
 import { TOKEN_IS_VALID } from '../actions/auth'
+import { TOKEN_IS_NULL } from '../actions/auth'
 
 const initialState = {
     isLoading: false,
@@ -46,6 +47,8 @@ const authReducer = (state = initialState, action) => {
         return {
             ...state,
             isLoading: false,
+            timestamp: null,
+            expiration: null,
             isAuthenticated: false,
             success: true,
             message: 'Logout!'
@@ -55,8 +58,20 @@ const authReducer = (state = initialState, action) => {
         return {
             ...state,
             isAuthenticated: false,
+            timestamp: null,
+            expiration: null,
             success: false,
             message: 'Token expirou!'
+        }
+
+        case TOKEN_IS_NULL:
+        return {
+            ...state,
+            isAuthenticated: false,
+            timestamp: null,
+            expiration: null,
+            success: false,
+            message: 'Faça login!'
         }
 
         case TOKEN_IS_VALID:
