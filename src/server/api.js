@@ -50,6 +50,13 @@ router.post('/login', (req, res, next) => {
             })
         }
 
+        if ( data.message === "Missing credentials" ) {
+            return res.status(400).json({
+                success: false,
+                message: 'Missing credentials'
+            })
+        }
+
         return res.json({
             success: true,
             message: 'You have been successfully logged in!',

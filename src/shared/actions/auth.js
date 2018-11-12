@@ -29,11 +29,18 @@ export function logoutSuccess() {
     }
 }
 
+function loginIsLoading () {
+    return {
+        type: LOGIN_REQUEST
+    }
+}
+
 
 export function loginRequest(data) {
     const { username, password } = data
     return dispatch => {
-        axios.post('/api/login',
+        dispatch(loginIsLoading())
+        return axios.post('/api/login',
         qs.stringify({
             username: username,
             password: password

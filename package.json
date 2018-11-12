@@ -12,8 +12,8 @@
     "prod": "cross-env NODE_ENV=production node dist/server/server.js"
   },
   "dependencies": {
-    "@material-ui/core": "^1.0.0",
-    "@material-ui/icons": "^1.0.0",
+    "@material-ui/core": "^3.4.0",
+    "@material-ui/icons": "^3.0.1",
     "axios": "^0.18.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.2",

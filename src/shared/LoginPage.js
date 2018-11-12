@@ -1,10 +1,23 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import { connect } from 'react-redux'
 
 import { loginRequest } from './actions/auth'
 
 import LoginForm from './LoginForm'
+
+import { withStyles } from '@material-ui/core/styles'
+import Grid from '@material-ui/core/Grid'
+import Typography from '@material-ui/core/Typography'
+
+const styles = {
+    root: {
+        flexGrow: 1,
+        height: "100%",
+        position: "absolute"
+    }
+}
 
 class LoginPage extends React.Component {
     constructor (props) {
@@ -28,8 +41,8 @@ class LoginPage extends React.Component {
 
     componentDidUpdate () {
         if (this.props.isAuthenticated == true) {
-            if (typeof this.props.location.state != "undefined") {
-                if (typeof this.props.location.state.from != "undefined") {
+            if (typeof this.props.location.state !== "undefined") {
+                if (typeof this.props.location.state.from !== "undefined") {
                     this.props.history.push(this.props.location.state.from.pathname)
                 }
             }
@@ -44,14 +57,14 @@ class LoginPage extends React.Component {
     }
 
     render() {
-        const { isLoading, success, message } = this.props
-        const color = success ? 'green' : 'red'
+        const { classes } = this.props
         return (
             <div>
-                <p style={{color}}>Result</p>
-                { isLoading ? <p>Carregando</p> : false }
-                <p>Mensagem: { message ? message : 'Nenhuma' }</p>
-                <LoginForm onSubmit={this.submit} />
+                <Grid container direction="row" justify="center" alignItems="center" className={classes.root}>
+                    <Grid item xs={12} sm={12} md={4}>
+                        <LoginForm onSubmit={this.submit} />
+                    </Grid>
+                </Grid>
             </div>
         )
     }
@@ -59,10 +72,7 @@ class LoginPage extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        isAuthenticated: state.auth.isAuthenticated,
-        isLoading: state.auth.isLoading,
-        success: state.auth.success,
-        message: state.auth.message
+        isAuthenticated: state.auth.isAuthenticated
     }
 }
 
@@ -72,4 +82,8 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(LoginPage)
+LoginPage.propTypes = {
+    classes: PropTypes.object.isRequired
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(LoginPage))
