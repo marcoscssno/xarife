@@ -10,6 +10,8 @@ import rootReducer from '../shared/reducers/rootReducer'
 
 import jwt from 'jsonwebtoken'
 
+window.__MUI_USE_NEXT_TYPOGRAPHY_VARIANTS__ = true
+
 const preloadedState = window.__PRELOADED_STATE__
 delete window.__PRELOADED_STATE__
 
@@ -35,7 +37,6 @@ const token = localStorage.getItem('token')
 if(token !== null) {
     jwt.verify(token, 'ILoveMyCat', function (error, decoded) {
         if (error) {
-            console.log("invalid yes")
             store.dispatch(tokenIsInvalid())
         }
         else {

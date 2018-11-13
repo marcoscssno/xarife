@@ -1,6 +1,7 @@
 import express from 'express'
 import passport from 'passport'
 import User from './models/User'
+import Agente from './models/Agente'
 
 const router = express.Router();
 
@@ -64,6 +65,32 @@ router.post('/login', (req, res, next) => {
             data
         })
     })(req, res, next)
+})
+
+router.route('/agentes')
+.post((req, res) => {
+    const novoAgente = new Agente ({
+        nome: req.body.nome,
+        matricula: req.body.matricula
+    })
+
+    novoAgente.save((err) => {
+        if (err) {
+            return console.error(err)
+        }
+
+        return res.json({
+            success: true,
+            message: 'Novo Agente cadastrado.'
+        })
+    })
+
+})
+.get((req, res) => {
+    Agente.find((err, agentes) => {
+        if (err) return console.error(err)
+        return res.json(agentes)
+    })
 })
 
 export default router

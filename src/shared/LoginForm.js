@@ -33,6 +33,20 @@ const styles = {
     }
 }
 
+const validate = values => {
+    const errors = {}
+    const requiredFields = [
+        'username',
+        'password'
+    ]
+    requiredFields.forEach(field => {
+        if (!values[field]) {
+            errors[field] = 'Obrigatório'
+        }
+    })
+    return errors
+}
+
 const renderTextField = ({
     input,
     ...custom
@@ -48,7 +62,7 @@ let LoginForm = props => {
     const { handleSubmit, classes, isLoading, success, message } = props
 
     return (
-        <form onSubmit={handleSubmit} className={classes.form}>
+        <form onSubmit={handleSubmit} className={classes.form} autoComplete="off">
             <Card>
                 <CardContent>
                     <Typography variant="h4" align="center" className={classes.title}>Login</Typography>
@@ -89,7 +103,8 @@ LoginForm.propTypes = {
 }
 
 LoginForm = reduxForm({
-    form: 'login'
+    form: 'login',
+    validate
 })(withStyles(styles)(LoginForm))
 
 LoginForm = connect(mapStateToProps)(LoginForm)

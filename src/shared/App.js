@@ -5,9 +5,9 @@ import { connect } from 'react-redux'
 import { addOne, takeOne } from './actions/counter'
 import { logoutRequest } from './actions/auth'
 
-import { Route, Redirect, Link, withRouter } from 'react-router-dom'
+import { Route, withRouter } from 'react-router-dom'
 
-import About from './About'
+import Agentes from './Agentes'
 import HomePage from './HomePage'
 import LoginPage from './LoginPage'
 import PrivateRoute from './PrivateRoute'
@@ -20,7 +20,7 @@ const App = (props) => (
     <CssBaseLine>
         <Route path='/login' component={LoginPage} />
         <Route exact path='/' component={HomePage} />
-        <PrivateRoute path='/about' component={About} />
+        <PrivateRoute path='/agentes' component={Agentes} />
     </CssBaseLine>
 )
 

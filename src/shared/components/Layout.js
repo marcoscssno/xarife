@@ -53,6 +53,10 @@ const styles = theme => ({
     minWidth: 0, // So the Typography noWrap works
   },
   toolbar: theme.mixins.toolbar,
+  link: {
+    textDecoration: 'none',
+    color: 'inherit'
+  }
 });
 
 class Layout extends React.Component {
@@ -85,8 +89,8 @@ class Layout extends React.Component {
       <div className={classes.root}>
         <AppBar position="absolute" className={classes.appBar}>
           <Toolbar>
-            <Typography className={classes.grow} variant="title" color="inherit" noWrap>
-              Xarife
+            <Typography className={classes.grow} variant="h6" color="inherit" noWrap>
+              <Link className={classes.link} to="/">Xarife</Link>
             </Typography>
             { isAuthenticated ? (
               <div>
@@ -112,7 +116,6 @@ class Layout extends React.Component {
                   open={open}
                   onClose={this.handleClose}
                 >
-                  <MenuItem onClick={this.handleClose}>Profile</MenuItem>
                   <MenuItem onClick={() => this.handleLogout(history)}>Logout</MenuItem>
                 </Menu>
               </div>
@@ -129,26 +132,10 @@ class Layout extends React.Component {
         >
           <div className={classes.toolbar} />
           <List component="nav">
-            <ListItem button component={Link} to="/about">
-              <ListItemText primary="About" />
-            </ListItem>
-            <ListItem button>
-              <ListItemIcon>
-                <DraftsIcon />
-              </ListItemIcon>
-              <ListItemText primary="Drafts" />
+            <ListItem button component={Link} to="/agentes">
+              <ListItemText primary="Agentes" />
             </ListItem>
           </List>
-          <Divider />
-          <List component="nav">
-            <ListItem button>
-              <ListItemText primary="Trash" />
-            </ListItem>
-            <ListItem button component="a" href="#simple-list">
-              <ListItemText primary="Spam" />
-            </ListItem>
-          </List>
-          <Divider />
         </Drawer>
         <main className={classes.content}>
           <div className={classes.toolbar} />
