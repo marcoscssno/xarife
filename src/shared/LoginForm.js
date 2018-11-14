@@ -49,10 +49,12 @@ const validate = values => {
 
 const renderTextField = ({
     input,
+    meta: {touched, error},
     ...custom
 }) => (
         <TextField
             {...input}
+            error={touched && error && true}
             {...custom}
             variant="outlined"
         />

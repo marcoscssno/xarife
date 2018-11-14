@@ -11,11 +11,13 @@ class PrivateRoute extends React.Component {
     componentDidMount () {
         const { isAuthenticated, expiration, tokenIsInvalid, tokenIsNull } = this.props
 
-        if (expiration === null) {
-            tokenIsNull()
+        if (expiration !== null) {
+            if (expiration <= Math.floor(Date.now() / 1000)) {
+                tokenIsInvalid()
+            }
         }
-        else if (expiration <= Math.floor(Date.now() / 1000)) {
-            tokenIsInvalid()
+        else {
+            tokenIsNull()
         }
     }
 

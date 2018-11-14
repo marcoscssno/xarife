@@ -9,13 +9,14 @@ import LoginForm from './LoginForm'
 
 import { withStyles } from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
-import Typography from '@material-ui/core/Typography'
+import green from '@material-ui/core/colors/green'
 
 const styles = {
     root: {
         flexGrow: 1,
         height: "100%",
-        position: "absolute"
+        position: "absolute",
+        backgroundColor: green[900]
     }
 }
 
