@@ -93,4 +93,18 @@ router.route('/agentes')
     })
 })
 
+router.route('/protected').get((req, res, next) => {
+    return passport.authenticate('jwt', (err, user) => {
+        if(err) {
+            return res.json({message: 'error'})
+        }
+        else {
+            return res.json({
+                err,
+                user
+            })
+        }
+    })(req, res, next)
+})
+
 export default router

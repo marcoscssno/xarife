@@ -5,6 +5,7 @@ import bodyParser from 'body-parser'
 import mongoose from 'mongoose'
 import passport from 'passport'
 import MyLocalStrategy from './strategies/login'
+import MyJwtStrategy from './strategies/jwt'
 
 import React from 'react'
 import { renderToString } from 'react-dom/server'
@@ -39,6 +40,7 @@ app.use(bodyParser.urlencoded({extended: true}))
 
 app.use(passport.initialize())
 passport.use('login', MyLocalStrategy)
+passport.use('jwt', MyJwtStrategy)
 
 app.use(express.static(path.resolve(__dirname, '../client')));
 
