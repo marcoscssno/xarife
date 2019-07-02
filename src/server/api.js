@@ -2,6 +2,7 @@ import express from 'express'
 import passport from 'passport'
 import User from './models/User'
 import Agente from './models/Agente'
+import axios from 'axios'
 
 const router = express.Router();
 
@@ -96,7 +97,7 @@ router.route('/agentes')
 router.route('/protected').get((req, res, next) => {
     return passport.authenticate('jwt', (err, user) => {
         if(err) {
-            return res.json({message: 'error'})
+            return res.json({message: 'errorx'})
         }
         else {
             return res.json({
@@ -105,6 +106,18 @@ router.route('/protected').get((req, res, next) => {
             })
         }
     })(req, res, next)
+})
+
+router.route('/pdf').get((req, res) => {
+    axios.get('http://localhost:5000', {
+        responseType: 'stream'
+    })
+    .then((response) => {
+        response.data.pipe(res)
+    })
+    .catch((error) => {
+        console.error(error)
+    })
 })
 
 export default router
