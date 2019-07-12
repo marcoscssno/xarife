@@ -18,9 +18,7 @@ const MyJwtStrategy = new JwtStrategy(opts, function(jwt_payload, done) {
         }
         
         else {
-            const error = new Error('User not found')
-            error.name = 'UserNotFound'
-            return done(error, false)
+            return done(null, false)
         }
     })
 })

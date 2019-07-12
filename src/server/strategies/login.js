@@ -34,20 +34,14 @@ const MyLocalStrategy = new LocalStrategy ({
                 id: user._id
             }
 
-            const token = jwt.sign(payload, 'ILoveMyCat', { expiresIn: '2m'}, function (error, token) {
+            const token = jwt.sign(payload, 'ILoveMyCat', { expiresIn: '15 days'}, function (error, token) {
                 if (error) {
                     return done(error)
                 }
                 else {
-                    const timestamp = Math.floor(Date.now() / 1000)
-
-                    // Two minutes
-                    const expiration = timestamp + (2 * 60)
                     
                     const data = {
-                        username,
-                        timestamp,
-                        expiration
+                        username
                     }
                     
                     return done(null, token, data)

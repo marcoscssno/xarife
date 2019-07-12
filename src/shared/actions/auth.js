@@ -9,10 +9,9 @@ export const TOKEN_IS_INVALID = 'TOKEN_IS_INVALID'
 export const TOKEN_IS_VALID = 'TOKEN_IS_VALID'
 export const TOKEN_IS_NULL = 'TOKEN_IS_NULL'
 
-export function loginSuccess(data) {
+export function loginSuccess() {
     return {
-        type: LOGIN_SUCCESS,
-        data
+        type: LOGIN_SUCCESS
     }
 }
 
@@ -47,7 +46,8 @@ export function loginRequest(data) {
         }))
         .then(response => {
             localStorage.setItem('token', response.data.token)
-            dispatch(loginSuccess(response.data.data))
+            axios.defaults.headers.common['Authorization'] = `Bearer ${response.data.token}`
+            dispatch(loginSuccess())
         })
         .catch(error => dispatch(loginFailed(error.response.data)))
     }
@@ -56,6 +56,7 @@ export function loginRequest(data) {
 export function logoutRequest(history) {
     return dispatch => {
         localStorage.removeItem('token')
+        delete axios.defaults.headers.common["Authorization"]
         history.push('/login')
         dispatch(logoutSuccess())
     }
@@ -73,9 +74,25 @@ export function tokenIsNull() {
     }
 }
 
-export function tokenIsValid(data) {
+export function tokenIsValid() {
     return {
-        type: TOKEN_IS_VALID,
-        data
+        type: TOKEN_IS_VALID
+    }
+}
+
+export function checkAuthentication () {
+    return dispatch => {
+        return axios.get('/api/checkauthentication')
+        .then(response => {
+            if (response.data.user) {
+                dispatch(tokenIsValid())
+            }
+            else {
+                dispatch(tokenIsInvalid())
+            }
+        })
+        .catch(error => {
+            console.error(error)
+        })
     }
 }

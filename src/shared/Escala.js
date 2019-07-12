@@ -6,6 +6,7 @@ import _ from 'lodash'
 import Typography from '@material-ui/core/Typography'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import { withStyles } from '@material-ui/core/styles'
+import moment from 'moment'
 
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -82,7 +83,7 @@ const styles = theme => ({
     }
 })
 
-class Agentes extends React.Component {
+class Escala extends React.Component {
     
     componentDidMount () {
         this.props.getAgentes()
@@ -94,51 +95,13 @@ class Agentes extends React.Component {
     
     render () {
         const { classes, loading, message, agentes, history } = this.props
+        const equipe = ["A", "A", "B", "B", "C", "C", "D", "D"]
         return (
             <Layout>
-                {loading && <CircularProgress className={classes.progress} />}
-                {message && <p>{message}</p>}
                 <Paper className={classes.root}>
-                    <Toolbar>
-                        <Typography variant="h6" noWrap>
-                            Agentes Penitenciários
-                        </Typography>
-                        <div className={classes.grow} />
-                        <div className={classes.search}>
-                            <div className={classes.searchIcon}>
-                                <SearchIcon />
-                            </div>
-                            <InputBase
-                                placeholder="Pesquisar"
-                                classes={{
-                                root: classes.inputRoot,
-                                input: classes.inputInput,
-                                }}
-                            />
-                        </div>
-                        <Button variant="contained" color="secondary">Cadastrar</Button>
-                    </Toolbar>
-                    {!_.isEmpty(agentes) &&
-                    <Table className={classes.table}>
-                        <TableHead>
-                        <TableRow>
-                            <TableCell>Nome</TableCell>
-                            <TableCell>Matrícula</TableCell>
-                        </TableRow>
-                        </TableHead>
-                        <TableBody>
-                        {agentes.map(agente => (
-                            <TableRow key={agente._id} hover onClick={event => this.handleClick(event, history, agente._id)} className={classes.clickable}>
-                            <TableCell component="th" scope="row">
-                                {agente.nome}
-                            </TableCell>
-                            <TableCell>{_.replace(agente.matricula, /(\d{3})(\d{3})(\d{1})([0-9a-zA-Z])/g, "\$1.\$2.\$3\-\$4")}</TableCell>
-                            </TableRow>
-                        ))}
-                        </TableBody>
-                    </Table>
-                    }
-                    </Paper>
+                    <Typography variant="body1">{moment().format('D [de] MMMM [de] YYYY')}</Typography>
+                    <Typography variant="body1">{equipe[(moment().diff(moment([2019, 2, 1]), 'days')%8)]}</Typography>
+                </Paper>
             </Layout>
         )
     }
@@ -159,4 +122,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(Agentes)))
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(Escala)))

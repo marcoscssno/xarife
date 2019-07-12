@@ -8,6 +8,8 @@ import { logoutRequest } from './actions/auth'
 import { Route, withRouter } from 'react-router-dom'
 
 import Agentes from './Agentes'
+import Escala from './Escala'
+import Agente from './Agente'
 import HomePage from './HomePage'
 import LoginPage from './LoginPage'
 import PrivateRoute from './PrivateRoute'
@@ -20,15 +22,15 @@ const App = (props) => (
     <CssBaseLine>
         <Route path='/login' component={LoginPage} />
         <Route exact path='/' component={HomePage} />
+        <Route exact path='/agente/:id' component={Agente} />
         <PrivateRoute path='/agentes' component={Agentes} />
+        <PrivateRoute path='/escala' component={Escala} />
     </CssBaseLine>
 )
 
 const mapStateToProps = (state) => {
     return {
         count: state.counter.count,
-        timestamp: state.auth.timestamp,
-        expiration: state.auth.expiration,
         isAuthenticated: state.auth.isAuthenticated
     }
 }

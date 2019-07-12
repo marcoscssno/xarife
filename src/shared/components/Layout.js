@@ -20,6 +20,8 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import Button from '@material-ui/core/Button';
 
+import moment from 'moment'
+
 import { Link, withRouter } from 'react-router-dom'
 
 import { logoutRequest } from '../actions/auth'
@@ -83,6 +85,7 @@ class Layout extends React.Component {
     const { classes, isAuthenticated, logoutRequest, history } = this.props
     const { anchorEl } = this.state
     const open = Boolean(anchorEl)
+    const equipe = ["ALPHA", "ALPHA", "BRAVO", "BRAVO", "CHARLIE", "CHARLIE", "DELTA", "DELTA"]
 
     return (
 
@@ -90,8 +93,9 @@ class Layout extends React.Component {
         <AppBar position="absolute" className={classes.appBar}>
           <Toolbar>
             <Typography className={classes.grow} variant="h6" color="inherit" noWrap>
-              <Link className={classes.link} to="/">Xarife</Link>
+              <Link className={classes.link} to="/">GORE Norte</Link>
             </Typography>
+            <Typography variant="h6" color="inherit" noWrap>{equipe[(moment().diff(moment([2019, 2, 1]), 'days')%8)]}</Typography>
             { isAuthenticated ? (
               <div>
                 <IconButton
@@ -134,6 +138,9 @@ class Layout extends React.Component {
           <List component="nav">
             <ListItem button component={Link} to="/agentes">
               <ListItemText primary="Agentes" />
+            </ListItem>
+            <ListItem button component={Link} to="/escala">
+              <ListItemText primary="Escala" />
             </ListItem>
           </List>
         </Drawer>

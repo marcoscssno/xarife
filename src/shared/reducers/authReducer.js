@@ -8,8 +8,6 @@ import { TOKEN_IS_NULL } from '../actions/auth'
 
 const initialState = {
     isLoading: false,
-    timestamp: null,
-    expiration: null,
     isAuthenticated: false,
     success: false,
     message: ''
@@ -27,8 +25,6 @@ const authReducer = (state = initialState, action) => {
         return {
             ...state,
             isLoading: false,
-            timestamp: action.data.timestamp,
-            expiration: action.data.expiration,
             isAuthenticated: true,
             success: true,
             message: 'Congratulations!'
@@ -47,8 +43,6 @@ const authReducer = (state = initialState, action) => {
         return {
             ...state,
             isLoading: false,
-            timestamp: null,
-            expiration: null,
             isAuthenticated: false,
             success: true,
             message: 'Logout!'
@@ -58,8 +52,6 @@ const authReducer = (state = initialState, action) => {
         return {
             ...state,
             isAuthenticated: false,
-            timestamp: null,
-            expiration: null,
             success: false,
             message: 'Token expirou!'
         }
@@ -68,8 +60,6 @@ const authReducer = (state = initialState, action) => {
         return {
             ...state,
             isAuthenticated: false,
-            timestamp: null,
-            expiration: null,
             success: false,
             message: 'Faça login!'
         }
@@ -78,8 +68,6 @@ const authReducer = (state = initialState, action) => {
         return {
             ...state,
             isLoading: false,
-            timestamp: action.data.timestamp,
-            expiration: action.data.expiration,
             isAuthenticated: true,
             success: true,
             message: 'Welcome back!'

@@ -1,4 +1,5 @@
 import mongoose from 'mongoose'
+const ObjectId = mongoose.Schema.Types.ObjectId
 
 const Schema = mongoose.Schema
 
@@ -8,14 +9,15 @@ const AgenteSchema = new Schema ({
         text: true,
         required: true
     },
+    nomeDeGuerra: String,
     matricula: {
-        type: Number,
+        type: String,
         index: { unique: true }
     },
     pai: String,
     mae: String,
     tipoSanguineo: String,
-    naturalidade: String,
+    naturalidade: ObjectId,
     dataDeNascimento: Date,
     nacionalidade: String,
     grauDeInstrucao: String,
@@ -29,18 +31,29 @@ const AgenteSchema = new Schema ({
     },
     identidade: {
         numero: {
-            type: Number,
+            type: String,
             index: {
                 unique: true,
                 sparse: true
             }
         },
         orgaoExpeditor: String,
-        uf: String,
+        uf: ObjectId,
         dataDeExpedicao: Date
     },
-    email: String,
-    nomeDeGuerra: String
+    email: {
+        tipo: String,
+        endereco: String,
+    },
+    endereco: {
+        tipo: String,
+        tipoLogradouro: String,
+        nomeLogradouro: String,
+        numero: Number,
+        bairro: String,
+        cidade: ObjectId,
+        estado: ObjectId
+    }
 })
 
 const Agente = mongoose.model('Agente', AgenteSchema)

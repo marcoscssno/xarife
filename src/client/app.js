@@ -2,20 +2,23 @@ import React from 'react'
 import { hydrate } from 'react-dom'
 
 import { Provider } from 'react-redux'
-import { createStore, applyMiddleware } from 'redux'
+import { createStore, applyMiddleware, compose } from 'redux'
 
 import thunkMiddleware from 'redux-thunk'
 
 import rootReducer from '../shared/reducers/rootReducer'
 
-import jwt from 'jsonwebtoken'
+import axios from 'axios'
 
 window.__MUI_USE_NEXT_TYPOGRAPHY_VARIANTS__ = true
 
 const preloadedState = window.__PRELOADED_STATE__
 delete window.__PRELOADED_STATE__
 
-const store = createStore(rootReducer, preloadedState, applyMiddleware(thunkMiddleware))
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+const store = createStore(rootReducer, preloadedState, composeEnhancers(
+    applyMiddleware(thunkMiddleware))
+)
 
 import 'normalize.css'
 import './app.css'
@@ -30,27 +33,34 @@ if (module.hot) {
 
 import { BrowserRouter } from 'react-router-dom'
 
-import { tokenIsValid, tokenIsInvalid, tokenIsNull } from '../shared/actions/auth'
+import { checkAuthentication, tokenIsNull } from '../shared/actions/auth'
 
 const token = localStorage.getItem('token')
 
 if(token !== null) {
-    jwt.verify(token, 'ILoveMyCat', function (error, decoded) {
-        if (error) {
-            store.dispatch(tokenIsInvalid())
-        }
-        else {
-            store.dispatch(tokenIsValid({
-                timestamp: decoded.iat,
-                expiration: decoded.exp
-            }))
-        }
-    })
+    axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
+    store.dispatch(checkAuthentication())
 }
 else {
     store.dispatch(tokenIsNull())
+    delete axios.defaults.headers.common['Authorization']
 }
+
+import moment from 'moment'
+
+moment.locale('pt-BR')
 
 import App from '../shared/App'
 
-hydrate(<Provider store={store}><BrowserRouter><App /></BrowserRouter></Provider>, document.getElementById('app'));
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import green from '@material-ui/core/colors/green';
+import deepOrange from '@material-ui/core/colors/deepOrange';
+
+const theme = createMuiTheme({
+    palette: {
+      primary: green,
+      secondary: deepOrange,
+    },
+});
+
+hydrate(<Provider store={store}><BrowserRouter><MuiThemeProvider theme={theme}><App /></MuiThemeProvider></BrowserRouter></Provider>, document.getElementById('app'));

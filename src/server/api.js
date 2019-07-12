@@ -94,6 +94,14 @@ router.route('/agentes')
     })
 })
 
+router.route('/agente/:id')
+.get((req, res) => {
+    Agente.findById(req.params.id, (err, agente) => {
+        if (err) return console.error(err)
+        return res.json(agente)
+    })
+})
+
 router.route('/protected').get((req, res, next) => {
     return passport.authenticate('jwt', (err, user) => {
         if(err) {
@@ -118,6 +126,20 @@ router.route('/pdf').get((req, res) => {
     .catch((error) => {
         console.error(error)
     })
+})
+
+router.route('/checkauthentication').get((req, res, next) => {
+    return passport.authenticate('jwt', (err, user) => {
+        if(err) {
+            return res.json({message: 'errorx'})
+        }
+        else {
+            return res.json({
+                err,
+                user
+            })
+        }
+    })(req, res, next)
 })
 
 export default router

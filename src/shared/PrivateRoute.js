@@ -4,36 +4,17 @@ import { connect } from 'react-redux'
 
 import { Route, Redirect, withRouter } from 'react-router-dom'
 
-import { tokenIsInvalid, tokenIsNull } from './actions/auth'
+import { tokenIsInvalid, tokenIsNull, checkAuthentication } from './actions/auth'
 
 class PrivateRoute extends React.Component {
 
-    componentDidMount () {
-        const { isAuthenticated, expiration, tokenIsInvalid, tokenIsNull } = this.props
-
-        if (expiration !== null) {
-            if (expiration <= Math.floor(Date.now() / 1000)) {
-                tokenIsInvalid()
-            }
-        }
-        else {
-            tokenIsNull()
-        }
-    }
-
     componentDidUpdate () {
-        const { isAuthenticated, expiration, tokenIsInvalid, tokenIsNull } = this.props
-
-        if (expiration === null) {
-            tokenIsNull()
-        }
-        else if (expiration <= Math.floor(Date.now() / 1000)) {
-            tokenIsInvalid()
-        }
+        const { checkAuthentication } = this.props
+        checkAuthentication()
     }
 
     render() {
-        const { isAuthenticated, expiration, timestamp, tokenIsInvalid, component: Component, ...rest } = this.props
+        const { isAuthenticated, tokenIsInvalid, component: Component, ...rest } = this.props
         return (
             <Route {...rest} render={(props) => {
                 if (isAuthenticated) {
@@ -59,16 +40,15 @@ class PrivateRoute extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        isAuthenticated: state.auth.isAuthenticated,
-        expiration: state.auth.expiration,
-        timestamp: state.auth.timestamp
+        isAuthenticated: state.auth.isAuthenticated
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
         tokenIsInvalid: () => dispatch(tokenIsInvalid()),
-        tokenIsNull: () => dispatch(tokenIsNull())
+        tokenIsNull: () => dispatch(tokenIsNull()),
+        checkAuthentication: () => dispatch(checkAuthentication())
     }
 }
 
