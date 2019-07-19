@@ -3,6 +3,7 @@ import passport from 'passport'
 import User from './models/User'
 import Agente from './models/Agente'
 import axios from 'axios'
+import _ from 'lodash'
 
 const router = express.Router();
 
@@ -128,18 +129,18 @@ router.route('/pdf').get((req, res) => {
     })
 })
 
-router.route('/checkauthentication').get((req, res, next) => {
-    return passport.authenticate('jwt', (err, user) => {
-        if(err) {
-            return res.json({message: 'errorx'})
-        }
-        else {
-            return res.json({
-                err,
-                user
-            })
-        }
-    })(req, res, next)
+router.get('/checkauthentication', passport.authenticate('jwt', { session: false }), (req, res) => {
+    return res.send(req.user)
+})
+
+import AgenteCSV from './models/AgenteCSV'
+
+router.get('/agentesCSV', (req, res) => {
+    AgenteCSV.find({}, (err, agentes) => {
+        agentes.forEach(agente => {
+            AgenteCSV.findOneAndUpdate({_id: agente._id}, {NOME: _.replace(_.startCase(_.toLower(agente.NOME)), /(De|Da|Das|Do|Dos)/g, x => _.toLower(x))})
+        })
+    })
 })
 
 export default router

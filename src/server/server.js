@@ -24,16 +24,16 @@ import cfg from '../config'
 
 var app = express();
 
-import webpack from 'webpack'
-import config from '../../webpack.config.dev'
-import webpackDevMiddleware from 'webpack-dev-middleware'
-import webpackHotMiddleware from 'webpack-hot-middleware'
+// import webpack from 'webpack'
+// import config from '../../webpack.config.dev'
+// import webpackDevMiddleware from 'webpack-dev-middleware'
+// import webpackHotMiddleware from 'webpack-hot-middleware'
 
-if(process.env.NODE_ENV === 'development') {
-    const compiler = webpack(config)
-    app.use(webpackDevMiddleware(compiler, {publicPath: config.output.publicPath}))
-    app.use(webpackHotMiddleware(compiler)) 
-}
+// if(process.env.NODE_ENV === 'development') {
+//     const compiler = webpack(config)
+//     app.use(webpackDevMiddleware(compiler, {publicPath: config.output.publicPath}))
+//     app.use(webpackHotMiddleware(compiler))
+// }
 
 app.use(morgan('combined'))
 app.use(bodyParser.urlencoded({extended: true}))

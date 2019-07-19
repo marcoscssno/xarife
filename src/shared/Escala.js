@@ -85,14 +85,6 @@ const styles = theme => ({
 
 class Escala extends React.Component {
     
-    componentDidMount () {
-        this.props.getAgentes()
-    }
-
-    handleClick = (event, history, id) => {
-        history.push(`/agente/${id}`)
-    }
-    
     render () {
         const { classes, loading, message, agentes, history } = this.props
         const equipe = ["A", "A", "B", "B", "C", "C", "D", "D"]

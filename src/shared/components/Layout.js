@@ -58,6 +58,9 @@ const styles = theme => ({
   link: {
     textDecoration: 'none',
     color: 'inherit'
+  },
+  rightMargin: {
+    marginRight: theme.spacing.unit
   }
 });
 
@@ -95,7 +98,7 @@ class Layout extends React.Component {
             <Typography className={classes.grow} variant="h6" color="inherit" noWrap>
               <Link className={classes.link} to="/">GORE Norte</Link>
             </Typography>
-            <Typography variant="h6" color="inherit" noWrap>{equipe[(moment().diff(moment([2019, 2, 1]), 'days')%8)]}</Typography>
+            <Typography className={classes.rightMargin} variant="button" color="inherit" noWrap>{equipe[(moment().diff(moment([2019, 2, 1]), 'days')%8)]}</Typography>
             { isAuthenticated ? (
               <div>
                 <IconButton

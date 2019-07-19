@@ -14,6 +14,7 @@ const AgenteSchema = new Schema ({
         type: String,
         index: { unique: true }
     },
+    sexo: String,
     pai: String,
     mae: String,
     tipoSanguineo: String,

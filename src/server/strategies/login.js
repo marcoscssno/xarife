@@ -34,7 +34,7 @@ const MyLocalStrategy = new LocalStrategy ({
                 id: user._id
             }
 
-            const token = jwt.sign(payload, 'ILoveMyCat', { expiresIn: '15 days'}, function (error, token) {
+            const token = jwt.sign(payload, 'ILoveMyCat', { expiresIn: '1 minute'}, function (error, token) {
                 if (error) {
                     return done(error)
                 }

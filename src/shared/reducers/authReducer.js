@@ -1,10 +1,4 @@
-import { LOGIN_REQUEST } from '../actions/auth'
-import { LOGIN_SUCCESS } from '../actions/auth'
-import { LOGIN_FAILED } from '../actions/auth'
-import { LOGOUT_SUCCESS } from '../actions/auth'
-import { TOKEN_IS_INVALID } from '../actions/auth'
-import { TOKEN_IS_VALID } from '../actions/auth'
-import { TOKEN_IS_NULL } from '../actions/auth'
+import {LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILED, LOGOUT_SUCCESS, TOKEN_IS_INVALID, TOKEN_IS_VALID, TOKEN_IS_NULL, DEAUTHENTICATE } from '../actions/auth'
 
 const initialState = {
     isLoading: false,
@@ -15,6 +9,13 @@ const initialState = {
 
 const authReducer = (state = initialState, action) => {
     switch (action.type) {
+        case DEAUTHENTICATE:
+        return {
+            ...state,
+            isAuthenticated: false,
+            message: action.message
+        }
+        
         case LOGIN_REQUEST:
         return {
             ...state,

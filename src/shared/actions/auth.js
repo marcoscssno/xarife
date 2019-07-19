@@ -8,6 +8,7 @@ export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS'
 export const TOKEN_IS_INVALID = 'TOKEN_IS_INVALID'
 export const TOKEN_IS_VALID = 'TOKEN_IS_VALID'
 export const TOKEN_IS_NULL = 'TOKEN_IS_NULL'
+export const DEAUTHENTICATE = 'DEAUTHENTICATE'
 
 export function loginSuccess() {
     return {
@@ -19,6 +20,13 @@ export function loginFailed(response) {
     return {
         type: LOGIN_FAILED,
         response
+    }
+}
+
+export function deauthenticate(message) {
+    return {
+        type: DEAUTHENTICATE,
+        message
     }
 }
 
@@ -34,11 +42,20 @@ function loginIsLoading () {
     }
 }
 
+export function resetAuthentication (message = '') {
+    return dispatch => {
+        dispatch(deauthenticate(message))
+        localStorage.removeItem('token')
+        delete axios.defaults.headers.common["Authorization"]
+    }
+}
+
 
 export function loginRequest(data) {
     const { username, password } = data
     return dispatch => {
         dispatch(loginIsLoading())
+        dispatch(resetAuthentication())
         return axios.post('/api/login',
         qs.stringify({
             username: username,
@@ -55,8 +72,7 @@ export function loginRequest(data) {
 
 export function logoutRequest(history) {
     return dispatch => {
-        localStorage.removeItem('token')
-        delete axios.defaults.headers.common["Authorization"]
+        dispatch(resetAuthentication())
         history.push('/login')
         dispatch(logoutSuccess())
     }
@@ -87,12 +103,9 @@ export function checkAuthentication () {
             if (response.data.user) {
                 dispatch(tokenIsValid())
             }
-            else {
-                dispatch(tokenIsInvalid())
-            }
         })
         .catch(error => {
-            console.error(error)
+            dispatch(resetAuthentication())
         })
     }
 }

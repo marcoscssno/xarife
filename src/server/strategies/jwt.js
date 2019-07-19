@@ -6,8 +6,9 @@ import User from '../models/User'
 var opts = {}
 opts.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken()
 opts.secretOrKey = 'ILoveMyCat'
+opts.passReqToCallback = true
 
-const MyJwtStrategy = new JwtStrategy(opts, function(jwt_payload, done) {
+const MyJwtStrategy = new JwtStrategy(opts, function(req, jwt_payload, done) {
     User.findById(jwt_payload.id, (err, user) => {
         if (err) {
             return done(err, false)

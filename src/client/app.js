@@ -15,7 +15,7 @@ window.__MUI_USE_NEXT_TYPOGRAPHY_VARIANTS__ = true
 const preloadedState = window.__PRELOADED_STATE__
 delete window.__PRELOADED_STATE__
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({trace: true}) || compose
 const store = createStore(rootReducer, preloadedState, composeEnhancers(
     applyMiddleware(thunkMiddleware))
 )
