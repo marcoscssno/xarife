@@ -12,6 +12,7 @@ import Escala from './Escala'
 import Agente from './Agente'
 import HomePage from './HomePage'
 import LoginPage from './LoginPage'
+import Divisoes from './Divisoes'
 import PrivateRoute from './PrivateRoute'
 
 import { hot } from 'react-hot-loader'
@@ -21,10 +22,11 @@ import CssBaseLine from '@material-ui/core/CssBaseLine'
 const App = (props) => (
     <CssBaseLine>
         <Route path='/login' component={LoginPage} />
-        <Route exact path='/' component={HomePage} />
-        <Route exact path='/agente/:id' component={Agente} />
-        <PrivateRoute path='/agentes' component={Agentes} />
-        <PrivateRoute path='/escala' component={Escala} />
+        <PrivateRoute exact path='/' component={HomePage} />
+        <PrivateRoute exact path='/agente/:id' component={Agente} />
+        <PrivateRoute exact path='/agentes' component={Agentes} />
+        <PrivateRoute exact path='/escala' component={Escala} />
+        <PrivateRoute exact path='/divisoes' component={Divisoes} />
     </CssBaseLine>
 )
 

@@ -29,7 +29,6 @@ const agentesReducer = (state = initialState, action) => {
         }
 
         case RECEIVE_AGENTE:
-        console.log(action.agente)
         return {
             ...state,
             loading: false,

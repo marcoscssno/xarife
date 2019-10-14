@@ -1,0 +1,56 @@
+[
+  {
+    "nome": "Célula de Segurança, Controle e Disciplina",
+    "cidade": "5d56c016270742208039b6cf",
+    "sigla": "CSCD",
+    "tipo": "5d602693c09d11047c5ea366"
+  },
+  {
+    "nome": "Cadeia Pública de Santa Quitéria",
+    "cidade": "5d56c016270742208039b732",
+    "sigla": "",
+    "tipo": "5d6026c2c09d11047c5ea36e"
+  },
+  {
+    "nome": "Cadeia Pública de Itarema",
+    "cidade": "5d56c016270742208039b6ee",
+    "sigla": "",
+    "tipo": "5d6026c2c09d11047c5ea36e"
+  },
+  {
+    "nome": "Célula Regional do Sistema Penal Norte",
+    "cidade": "5d56c016270742208039b73b",
+    "sigla": "CRSPN",
+    "tipo": "5d602693c09d11047c5ea366"
+  },
+  {
+    "nome": "Coordenadoria do Grupo de Ações Penitenciárias",
+    "cidade": "5d56c016270742208039b6a0",
+    "sigla": "GAP",
+    "tipo": "5d6026b8c09d11047c5ea36a"
+  },
+  {
+    "nome": "Núcleo de Escolta",
+    "cidade": "5d56c016270742208039b6a0",
+    "sigla": "NUESC",
+    "tipo": "5d6026bcc09d11047c5ea36b"
+  },
+  {
+    "nome": "Núcleo de Operações Táticas e Treinamento",
+    "cidade": "5d56c016270742208039b6a0",
+    "sigla": "NOTT",
+    "tipo": "5d6026bcc09d11047c5ea36b"
+  },
+  {
+    "nome": "Núcleo de Informações Penitenciárias",
+    "cidade": "5d56c016270742208039b6cf",
+    "sigla": "NIP",
+    "tipo": "5d6026bcc09d11047c5ea36b"
+  },
+  {
+    "nome": "Núcleo de Assistência as Famílias",
+    "cidade": "5d56c016270742208039b6cf",
+    "sigla": "NUASF",
+    "tipo": "5d6026bcc09d11047c5ea36b"
+  }
+]

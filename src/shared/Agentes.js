@@ -20,6 +20,9 @@ import InputBase from '@material-ui/core/InputBase';
 import { fade } from '@material-ui/core/styles/colorManipulator';
 
 import { Link, withRouter } from 'react-router-dom'
+import { enfeitarMatricula } from './helpers/texto';
+
+import moment from 'moment'
 
 const styles = theme => ({
     root: {
@@ -41,8 +44,8 @@ const styles = theme => ({
             marginLeft: theme.spacing.unit * 3,
             width: 'auto',
         },
-        },
-        searchIcon: {
+    },
+    searchIcon: {
         width: theme.spacing.unit * 9,
         height: '100%',
         position: 'absolute',
@@ -50,12 +53,12 @@ const styles = theme => ({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        },
-        inputRoot: {
+    },
+    inputRoot: {
         color: 'inherit',
         width: '100%',
-        },
-        inputInput: {
+    },
+    inputInput: {
         paddingTop: theme.spacing.unit,
         paddingRight: theme.spacing.unit,
         paddingBottom: theme.spacing.unit,
@@ -65,7 +68,7 @@ const styles = theme => ({
         [theme.breakpoints.up('md')]: {
             width: 200,
         },
-        },
+    },
     grow: {
         flexGrow: 1
     },
@@ -83,17 +86,18 @@ const styles = theme => ({
 })
 
 class Agentes extends React.Component {
-    
-    componentDidMount () {
+
+    componentDidMount() {
         this.props.getAgentes()
     }
 
     handleClick = (event, history, id) => {
         history.push(`/agente/${id}`)
     }
-    
-    render () {
+
+    render() {
         const { classes, loading, message, agentes, history } = this.props
+        let cidade, estado
         return (
             <Layout>
                 {loading && <CircularProgress className={classes.progress} />}
@@ -111,34 +115,38 @@ class Agentes extends React.Component {
                             <InputBase
                                 placeholder="Pesquisar"
                                 classes={{
-                                root: classes.inputRoot,
-                                input: classes.inputInput,
+                                    root: classes.inputRoot,
+                                    input: classes.inputInput,
                                 }}
                             />
                         </div>
                         <Button variant="contained" color="secondary">Cadastrar</Button>
                     </Toolbar>
                     {!_.isEmpty(agentes) &&
-                    <Table className={classes.table}>
-                        <TableHead>
-                        <TableRow>
-                            <TableCell>Nome</TableCell>
-                            <TableCell>Matrícula</TableCell>
-                        </TableRow>
-                        </TableHead>
-                        <TableBody>
-                        {agentes.map(agente => (
-                            <TableRow key={agente._id} hover onClick={event => this.handleClick(event, history, agente._id)} className={classes.clickable}>
-                            <TableCell component="th" scope="row">
-                                {agente.nome}
-                            </TableCell>
-                            <TableCell>{_.replace(agente.matricula, /(\d{3})(\d{3})(\d{1})([0-9a-zA-Z])/g, "\$1.\$2.\$3\-\$4")}</TableCell>
-                            </TableRow>
-                        ))}
-                        </TableBody>
-                    </Table>
+                        <Table className={classes.table}>
+                            <TableHead>
+                                <TableRow>
+                                    <TableCell>Nome</TableCell>
+                                    <TableCell>Matrícula</TableCell>
+                                    <TableCell>Residência</TableCell>
+                                    <TableCell>Lotação</TableCell>
+                                </TableRow>
+                            </TableHead>
+                            <TableBody>
+                                {agentes.map(agente => (
+                                    <TableRow key={agente._id} hover onClick={event => this.handleClick(event, history, agente._id)} className={classes.clickable}>
+                                        <TableCell component="th" scope="row">
+                                            {agente.nome}
+                                        </TableCell>
+                                        <TableCell>{enfeitarMatricula(agente.matricula)}</TableCell>
+                                        <TableCell>{!_.isEmpty(agente.endereco) && agente.endereco[0].cidade.nome + " - " + agente.endereco[0].cidade.estado.sigla}</TableCell>
+                                        <TableCell>{!_.isEmpty(agente.lotacoes) && agente.lotacoes[0].divisao !== null ? agente.lotacoes[0].divisao.nome.sigla != null ? agente.lotacoes[0].divisao.nome.sigla + " " + moment(agente.lotacoes[0].data).fromNow() : agente.lotacoes[0].divisao.nome.porExtenso + " " + moment(agente.lotacoes[0].data).fromNow() : ""}</TableCell>
+                                    </TableRow>
+                                ))}
+                            </TableBody>
+                        </Table>
                     }
-                    </Paper>
+                </Paper>
             </Layout>
         )
     }

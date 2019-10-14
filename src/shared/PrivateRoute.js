@@ -59,7 +59,7 @@ class PrivateRoute extends React.Component {
                                     onIdle={this.onIdle}
                                     onAction={this.onAction}
                                     debounce={250}
-                                    timeout={1000 * 30} />
+                                    timeout={1000 * 300} />
 
                                 <Component {...props} />
                             </div>

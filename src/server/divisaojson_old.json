@@ -1,0 +1,518 @@
+[
+  {
+    "nome": "Cadeia Pública de Camocim",
+    "cidade": "5d56c016270742208039b6b4",
+    "sigla": null,
+    "tipo": "5d6026c2c09d11047c5ea36e"
+  },
+  {
+    "nome": "Unidade Prisional de Cariré",
+    "cidade": "5d56c016270742208039b6b9",
+    "sigla": null,
+    "tipo": "5d6026c2c09d11047c5ea36e"
+  },
+  {
+    "nome": "Cadeia Pública de Carnaubal",
+    "cidade": "5d56c016270742208039b6bc",
+    "sigla": null,
+    "tipo": "5d6026c2c09d11047c5ea36e"
+  },
+  {
+    "nome": "Cadeia Pública de Chaval",
+    "cidade": "5d56c016270742208039b6c2",
+    "sigla": null,
+    "tipo": "5d6026c2c09d11047c5ea36e"
+  },
+  {
+    "nome": "Cadeia Pública de Coreaú",
+    "cidade": "5d56c016270742208039b6c5",
+    "sigla": null,
+    "tipo": "5d6026c2c09d11047c5ea36e"
+  },
+  {
+    "nome": "Cadeia Pública de Croatá",
+    "cidade": "5d56c016270742208039b6c8",
+    "sigla": null,
+    "tipo": "5d6026c2c09d11047c5ea36e"
+  },
+  {
+    "nome": "Unidade Prisional de Forquilha",
+    "cidade": "5d56c016270742208039b6ce",
+    "sigla": null,
+    "tipo": "5d6026c2c09d11047c5ea36e"
+  },
+  {
+    "nome": "Cadeia Pública de Frecheirinha",
+    "cidade": "5d56c016270742208039b6d1",
+    "sigla": null,
+    "tipo": "5d6026c2c09d11047c5ea36e"
+  },
+  {
+    "nome": "Cadeia Pública de Graça",
+    "cidade": "5d56c016270742208039b6d3",
+    "sigla": null,
+    "tipo": "5d6026c2c09d11047c5ea36e"
+  },
+  {
+    "nome": "Cadeia Pública de Groaíras",
+    "cidade": "5d56c016270742208039b6d6",
+    "sigla": null,
+    "tipo": "5d6026c2c09d11047c5ea36e"
+  },
+  {
+    "nome": "Cadeia Pública de Hidrolândia",
+    "cidade": "5d56c016270742208039b6da",
+    "sigla": null,
+    "tipo": "5d6026c2c09d11047c5ea36e"
+  },
+  {
+    "nome": "Cadeia Pública de Ibiapina",
+    "cidade": "5d56c016270742208039b6dd",
+    "sigla": null,
+    "tipo": "5d6026c2c09d11047c5ea36e"
+  },
+  {
+    "nome": "Cadeia Pública de Ipu",
+    "cidade": "5d56c016270742208039b6e5",
+    "sigla": null,
+    "tipo": "5d6026c2c09d11047c5ea36e"
+  },
+  {
+    "nome": "Cadeia Pública de Irauçuba",
+    "cidade": "5d56c016270742208039b6e8",
+    "sigla": null,
+    "tipo": "5d6026c2c09d11047c5ea36e"
+  },
+  {
+    "nome": "Cadeia Pública de Massapê",
+    "cidade": "5d56c016270742208039b700",
+    "sigla": null,
+    "tipo": "5d6026c2c09d11047c5ea36e"
+  },
+  {
+    "nome": "Cadeia Pública de Meruoca Geraldo Sampaio Sales",
+    "cidade": "5d56c016270742208039b702",
+    "sigla": null,
+    "tipo": "5d6026c2c09d11047c5ea36e"
+  },
+  {
+    "nome": "Cadeia Pública de Moraújo",
+    "cidade": "5d56c016270742208039b70a",
+    "sigla": null,
+    "tipo": "5d6026c2c09d11047c5ea36e"
+  },
+  {
+    "nome": "Cadeia Pública de Mucambo",
+    "cidade": "5d56c016270742208039b70c",
+    "sigla": null,
+    "tipo": "5d6026c2c09d11047c5ea36e"
+  },
+  {
+    "nome": "Cadeia Pública de Pacujá",
+    "cidade": "5d56c016270742208039b716",
+    "sigla": null,
+    "tipo": "5d6026c2c09d11047c5ea36e"
+  },
+  {
+    "nome": "Cadeia Pública de Reriutaba",
+    "cidade": "5d56c016270742208039b72e",
+    "sigla": null,
+    "tipo": "5d6026c2c09d11047c5ea36e"
+  },
+  {
+    "nome": "Cadeia Pública de Santana do Acaraú",
+    "cidade": "5d56c016270742208039b733",
+    "sigla": null,
+    "tipo": "5d6026c2c09d11047c5ea36e"
+  },
+  {
+    "nome": "Cadeia Pública de São Benedito",
+    "cidade": "5d56c016270742208039b735",
+    "sigla": null,
+    "tipo": "5d6026c2c09d11047c5ea36e"
+  },
+  {
+    "nome": "Cadeia Pública de Senador Sá",
+    "cidade": "5d56c016270742208039b73a",
+    "sigla": null,
+    "tipo": "5d6026c2c09d11047c5ea36e"
+  },
+  {
+    "nome": "Cadeia Pública de Tianguá",
+    "cidade": "5d56c016270742208039b742",
+    "sigla": null,
+    "tipo": "5d6026c2c09d11047c5ea36e"
+  },
+  {
+    "nome": "Cadeia Pública de Ubajara",
+    "cidade": "5d56c016270742208039b745",
+    "sigla": null,
+    "tipo": "5d6026c2c09d11047c5ea36e"
+  },
+  {
+    "nome": "Cadeia Pública de Varjota",
+    "cidade": "5d56c016270742208039b74a",
+    "sigla": null,
+    "tipo": "5d6026c2c09d11047c5ea36e"
+  },
+  {
+    "nome": "Cadeia Pública de Viçosa do Ceará",
+    "cidade": "5d56c016270742208039b74c",
+    "sigla": null,
+    "tipo": "5d6026c2c09d11047c5ea36e"
+  },
+  {
+    "nome": "Centro de Triagem e Observação Criminológica",
+    "cidade": "5d56c016270742208039b6a0",
+    "sigla": "CTOC",
+    "tipo": "5d6026c2c09d11047c5ea36e"
+  },
+  {
+    "nome": "Centro de Detenção Provisória",
+    "cidade": "5d56c016270742208039b6a0",
+    "sigla": "CDP",
+    "tipo": "5d6026c2c09d11047c5ea36e"
+  },
+  {
+    "nome": "Unidade Prisional Professor José Sobreira de Amorim",
+    "cidade": "5d56c016270742208039b6ea",
+    "sigla": null,
+    "tipo": "5d6026c2c09d11047c5ea36e"
+  },
+  {
+    "nome": "Centro de Execução Penal e Integração Social Vasco Damasceno Weyne",
+    "cidade": "5d56c016270742208039b6ea",
+    "sigla": "Cepis",
+    "tipo": "5d6026c2c09d11047c5ea36e"
+  },
+  {
+    "nome": "Unidade Prisional Irmã Imelda Lima Pontes",
+    "cidade": "5d56c016270742208039b6a0",
+    "sigla": null,
+    "tipo": "5d6026c2c09d11047c5ea36e"
+  },
+  {
+    "nome": "Penitenciária Francisco Hélio Viana de Araújo",
+    "cidade": "5d56c016270742208039b714",
+    "sigla": "PFHVA",
+    "tipo": "5d6026c2c09d11047c5ea36e"
+  },
+  {
+    "nome": "Instituto Penal Feminino Auri Moura Costa",
+    "cidade": "5d56c016270742208039b6a0",
+    "sigla": "IPF",
+    "tipo": "5d6026c2c09d11047c5ea36e"
+  },
+  {
+    "nome": "Institutto Penal Professor Olavo Oliveira II",
+    "cidade": "5d56c016270742208039b6ea",
+    "sigla": "IPPOO II",
+    "tipo": "5d6026c2c09d11047c5ea36e"
+  },
+  {
+    "nome": "Hospital Geral e Sanatório Penal Professor Otávio Lobo",
+    "cidade": "5d56c016270742208039b6ea",
+    "sigla": "HGSPPOL",
+    "tipo": "5d6026c2c09d11047c5ea36e"
+  },
+  {
+    "nome": "Instituto Psiquiátrico Governador Stênio Gomes",
+    "cidade": "5d56c016270742208039b6ea",
+    "sigla": "IPGSG",
+    "tipo": "5d6026c2c09d11047c5ea36e"
+  },
+  {
+    "nome": "Penitenciária Industrial Regional do Cariri",
+    "cidade": "5d56c016270742208039b6f7",
+    "sigla": "PIRC",
+    "tipo": "5d6026c2c09d11047c5ea36e"
+  },
+  {
+    "nome": "Unidade Prisional Desembargador Adalberto de Oliveira Barros Leal",
+    "cidade": "5d56c016270742208039b6c0",
+    "sigla": "UPDAOBL",
+    "tipo": "5d6026c2c09d11047c5ea36e"
+  },
+  {
+    "nome": "Unidade Prisional Agente Luciano Andrade Lima",
+    "cidade": "5d56c016270742208039b6ea",
+    "sigla": "UPALAL",
+    "tipo": "5d6026c2c09d11047c5ea36e"
+  },
+  {
+    "nome": "Casa de Privação Provisória de Liberdade Professor Clodoaldo Pinto",
+    "cidade": "5d56c016270742208039b6ea",
+    "sigla": "CPPL 2",
+    "tipo": "5d6026c2c09d11047c5ea36e"
+  },
+  {
+    "nome": "Casa de Privação Provisória de Liberdade Professor Jucá Neto",
+    "cidade": "5d56c016270742208039b6ea",
+    "sigla": "CPPL 3",
+    "tipo": "5d6026c2c09d11047c5ea36e"
+  },
+  {
+    "nome": "Casa de Privação Provisória de Liberdade Agente Elias Alves da Silva",
+    "cidade": "5d56c016270742208039b6ea",
+    "sigla": "CPPL 4",
+    "tipo": "5d6026c2c09d11047c5ea36e"
+  },
+  {
+    "nome": "Penitenciária Industrial Regional de Sobral",
+    "cidade": "5d56c016270742208039b73b",
+    "sigla": "PIRS",
+    "tipo": "5d6026c2c09d11047c5ea36e"
+  },
+  {
+    "nome": "Cadeia Pública de Granja",
+    "cidade": "5d56c016270742208039b6d4",
+    "sigla": null,
+    "tipo": "5d6026c2c09d11047c5ea36e"
+  },
+  {
+    "nome": "Cadeia Pública de Guaraciaba do Norte",
+    "cidade": "5d56c016270742208039b6d8",
+    "sigla": null,
+    "tipo": "5d6026c2c09d11047c5ea36e"
+  },
+  {
+    "nome": "Cadeia Pública de Sobral Moacir Sobreira",
+    "cidade": "5d56c016270742208039b73b",
+    "sigla": null,
+    "tipo": "5d6026c2c09d11047c5ea36e"
+  },
+  {
+    "nome": "Casa do Albergado de Sobral",
+    "cidade": "5d56c016270742208039b73b",
+    "sigla": null,
+    "tipo": "5d6026c2c09d11047c5ea36e"
+  },
+  {
+    "nome": "Assessoria Jurídica",
+    "cidade": "5d56c016270742208039b6cf",
+    "sigla": "ASJUR",
+    "tipo": "5d60268ec09d11047c5ea365"
+  },
+  {
+    "nome": "Assessoria de Controle Interno",
+    "cidade": "5d56c016270742208039b6cf",
+    "sigla": "ASCIN",
+    "tipo": "5d60268ec09d11047c5ea365"
+  },
+  {
+    "nome": "Ouvidoria",
+    "cidade": "5d56c016270742208039b6cf",
+    "sigla": "OUVID",
+    "tipo": "5d6026bec09d11047c5ea36c"
+  },
+  {
+    "nome": "Coordenadoria de Inteligência",
+    "cidade": "5d56c016270742208039b6cf",
+    "sigla": "COINT",
+    "tipo": "5d6026aec09d11047c5ea368"
+  },
+  {
+    "nome": "Célula de Segurança Tecnológica Prisional",
+    "cidade": "5d56c016270742208039b6cf",
+    "sigla": "CSTP",
+    "tipo": "5d602693c09d11047c5ea366"
+  },
+  {
+    "nome": "Célula de Monitoração Eletrônica de Pessoas",
+    "cidade": "5d56c016270742208039b6cf",
+    "sigla": "CMEP",
+    "tipo": "5d602693c09d11047c5ea366"
+  },
+  {
+    "nome": "Coordenadoria Especial de Administração Penitenciária",
+    "cidade": "5d56c016270742208039b6cf",
+    "sigla": "CEAP",
+    "tipo": "5d6026aec09d11047c5ea368"
+  },
+  {
+    "nome": "Coordenadoria de Execução da Saúde Prisional",
+    "cidade": "5d56c016270742208039b6cf",
+    "sigla": "CESAP",
+    "tipo": "5d6026aec09d11047c5ea368"
+  },
+  {
+    "nome": "Célula do Serviço de Atendimento Móvel da Saúde Prisional",
+    "cidade": "5d56c016270742208039b6cf",
+    "sigla": "CESAM",
+    "tipo": "5d602693c09d11047c5ea366"
+  },
+  {
+    "nome": "Coordenadoria de Inclusão Social do Preso e do Egresso",
+    "cidade": "5d56c016270742208039b6cf",
+    "sigla": "CISPE",
+    "tipo": "5d6026aec09d11047c5ea368"
+  },
+  {
+    "nome": "Núcleo de Assistência ao Preso e ao Egresso",
+    "cidade": "5d56c016270742208039b6cf",
+    "sigla": "NAPE",
+    "tipo": "5d6026bcc09d11047c5ea36b"
+  },
+  {
+    "nome": "Coordenadoria de Alternativas Penais",
+    "cidade": "5d56c016270742208039b6cf",
+    "sigla": "CAP",
+    "tipo": "5d6026aec09d11047c5ea368"
+  },
+  {
+    "nome": "Escola de Gestão Penitenciária e Formação para a Ressocialização",
+    "cidade": "5d56c016270742208039b6cf",
+    "sigla": "EGPR",
+    "tipo": "5d6026b4c09d11047c5ea369"
+  },
+  {
+    "nome": "Núcleo Pedagógico",
+    "cidade": "5d56c016270742208039b6cf",
+    "sigla": "NUPED",
+    "tipo": "5d6026bcc09d11047c5ea36b"
+  },
+  {
+    "nome": "Núcleo de Ensino",
+    "cidade": "5d56c016270742208039b6cf",
+    "sigla": "NUEN",
+    "tipo": "5d6026bcc09d11047c5ea36b"
+  },
+  {
+    "nome": "Coordenadoria de Desenvolvimento Institucional e Planejamento",
+    "cidade": "5d56c016270742208039b6cf",
+    "sigla": "CODIP",
+    "tipo": "5d6026aec09d11047c5ea368"
+  },
+  {
+    "nome": "Célula de Planejamento, Orçamento e Monitoramento",
+    "cidade": "5d56c016270742208039b6cf",
+    "sigla": "CEPLAN",
+    "tipo": "5d602693c09d11047c5ea366"
+  },
+  {
+    "nome": "Célula de Desenvolvimento Institucional",
+    "cidade": "5d56c016270742208039b6cf",
+    "sigla": "CEDINS",
+    "tipo": "5d602693c09d11047c5ea366"
+  },
+  {
+    "nome": "Coordenadoria Administrativa",
+    "cidade": "5d56c016270742208039b6cf",
+    "sigla": "COAD",
+    "tipo": "5d6026aec09d11047c5ea368"
+  },
+  {
+    "nome": "Célula de Manutenção",
+    "cidade": "5d56c016270742208039b6cf",
+    "sigla": "CEMAN",
+    "tipo": "5d602693c09d11047c5ea366"
+  },
+  {
+    "nome": "Célula de Patrimônio e Logística",
+    "cidade": "5d56c016270742208039b6cf",
+    "sigla": "CEPLOG",
+    "tipo": "5d602693c09d11047c5ea366"
+  },
+  {
+    "nome": "Célula de Compras e Aquisições",
+    "cidade": "5d56c016270742208039b6cf",
+    "sigla": "CECAQ",
+    "tipo": "5d602693c09d11047c5ea366"
+  },
+  {
+    "nome": "Coordenadoria Financeira",
+    "cidade": "5d56c016270742208039b6cf",
+    "sigla": "COFIN",
+    "tipo": "5d6026aec09d11047c5ea368"
+  },
+  {
+    "nome": "Célula Contábil e Financeira",
+    "cidade": "5d56c016270742208039b6cf",
+    "sigla": "CECOF",
+    "tipo": "5d602693c09d11047c5ea366"
+  },
+  {
+    "nome": "Coordenadoria de Gestão de Pessoas",
+    "cidade": "5d56c016270742208039b6cf",
+    "sigla": "COGEP",
+    "tipo": "5d6026aec09d11047c5ea368"
+  },
+  {
+    "nome": "Célula de Controle de Pessoal",
+    "cidade": "5d56c016270742208039b6cf",
+    "sigla": "CECOP",
+    "tipo": "5d602693c09d11047c5ea366"
+  },
+  {
+    "nome": "Núcleo de Folha de Pagamento",
+    "cidade": "5d56c016270742208039b6cf",
+    "sigla": "NUFOP",
+    "tipo": "5d6026bcc09d11047c5ea36b"
+  },
+  {
+    "nome": "Núcleo de Gestão de Arquivo",
+    "cidade": "5d56c016270742208039b6cf",
+    "sigla": "NUARQ",
+    "tipo": "5d6026bcc09d11047c5ea36b"
+  },
+  {
+    "nome": "Coordenadoria de Tecnologia da Informação e Comunicação",
+    "cidade": "5d56c016270742208039b6cf",
+    "sigla": "CTIC",
+    "tipo": "5d6026aec09d11047c5ea368"
+  },
+  {
+    "nome": "Conselho Penitenciário do Estado do Ceará",
+    "cidade": "5d56c016270742208039b6cf",
+    "sigla": "COPEN",
+    "tipo": "5d602699c09d11047c5ea367"
+  },
+  {
+    "nome": "Grupo Operacional Regional Norte",
+    "cidade": "5d56c016270742208039b73b",
+    "sigla": "GORE Norte",
+    "tipo": "5d6026b8c09d11047c5ea36a"
+  },
+  {
+    "nome": "Grupo Operacional Regional Litoral Oeste",
+    "cidade": "5d56c016270742208039b743",
+    "sigla": "GORE Litoral Oeste",
+    "tipo": "5d6026b8c09d11047c5ea36a"
+  },
+  {
+    "nome": "Grupo Operacional Regional Sul",
+    "cidade": "5d56c016270742208039b6f7",
+    "sigla": "GORE Sul",
+    "tipo": "5d6026b8c09d11047c5ea36a"
+  },
+  {
+    "nome": "Grupo Operacional Regional Jaguaribana",
+    "cidade": null,
+    "sigla": "GORE Jaguaribana",
+    "tipo": "5d6026b8c09d11047c5ea36a"
+  },
+  {
+    "nome": "Grupo Operacional Regional Inhamuns",
+    "cidade": null,
+    "sigla": "GORE Inhamuns",
+    "tipo": "5d6026b8c09d11047c5ea36a"
+  },
+  {
+    "nome": "Grupo Operacional Regional Sertão Central",
+    "cidade": null,
+    "sigla": "GORE Sertão Central",
+    "tipo": "5d6026b8c09d11047c5ea36a"
+  },
+  {
+    "nome": "Grupo Operacional Regional Centro Sul",
+    "cidade": null,
+    "sigla": "GORE Centro Sul",
+    "tipo": "5d6026b8c09d11047c5ea36a"
+  },
+  {
+    "nome": "Grupo de Ações Penitenciárias",
+    "cidade": "5d56c016270742208039b6a0",
+    "sigla": "GAP",
+    "tipo": "5d6026b8c09d11047c5ea36a"
+  }
+]

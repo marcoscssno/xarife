@@ -46,13 +46,15 @@ function receiveAgenteFailed() {
 }
 
 export function getAgentes() {
-    return dispatch => {
+    return async dispatch => {
         dispatch(requestAgentes())
-        return axios.get('/api/agentes')
-        .then(response => {
-            dispatch(receiveAgentes(response.data))
-        })
-        .catch(error => dispatch(receiveAgentesFailed()))
+        try {
+            const agentes = await axios.get('/api/agente')
+            dispatch(receiveAgentes(agentes.data))
+        }
+        catch (err) {
+            dispatch(receiveAgentesFailed())
+        }
     }
 }
 

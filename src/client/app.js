@@ -42,8 +42,8 @@ if(token !== null) {
     store.dispatch(checkAuthentication())
 }
 else {
-    store.dispatch(tokenIsNull())
     delete axios.defaults.headers.common['Authorization']
+    store.dispatch(tokenIsNull())
 }
 
 import moment from 'moment'

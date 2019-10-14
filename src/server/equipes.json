@@ -1,0 +1,98 @@
+[
+  {
+    "nome": {
+      "porExtenso": "Aplha",
+      "abreviado": "A"
+    },
+    "ordem": 1,
+    "grupoDeEquipes": "5d6407822a3b631c88b506d1"
+  },
+  {
+    "nome": {
+      "porExtenso": "Bravo",
+      "abreviado": "B"
+    },
+    "ordem": 2,
+    "grupoDeEquipes": "5d6407822a3b631c88b506d1"
+  },
+  {
+    "nome": {
+      "porExtenso": "Charlie",
+      "abreviado": "C"
+    },
+    "ordem": 3,
+    "grupoDeEquipes": "5d6407822a3b631c88b506d1"
+  },
+  {
+    "nome": {
+      "porExtenso": "Delta",
+      "abreviado": "D"
+    },
+    "ordem": 4,
+    "grupoDeEquipes": "5d6407822a3b631c88b506d1"
+  },
+  {
+    "nome": {
+      "porExtenso": "Aplha",
+      "abreviado": "A"
+    },
+    "ordem": 1,
+    "grupoDeEquipes": "5d6407822a3b631c88b506d2"
+  },
+  {
+    "nome": {
+      "porExtenso": "Bravo",
+      "abreviado": "B"
+    },
+    "ordem": 2,
+    "grupoDeEquipes": "5d6407822a3b631c88b506d2"
+  },
+  {
+    "nome": {
+      "porExtenso": "Charlie",
+      "abreviado": "C"
+    },
+    "ordem": 3,
+    "grupoDeEquipes": "5d6407822a3b631c88b506d2"
+  },
+  {
+    "nome": {
+      "porExtenso": "Delta",
+      "abreviado": "D"
+    },
+    "ordem": 4,
+    "grupoDeEquipes": "5d6407822a3b631c88b506d2"
+  },
+  {
+    "nome": {
+      "porExtenso": "Aplha",
+      "abreviado": "A"
+    },
+    "ordem": 1,
+    "grupoDeEquipes": "5d6407822a3b631c88b506d3"
+  },
+  {
+    "nome": {
+      "porExtenso": "Bravo",
+      "abreviado": "B"
+    },
+    "ordem": 2,
+    "grupoDeEquipes": "5d6407822a3b631c88b506d3"
+  },
+  {
+    "nome": {
+      "porExtenso": "Charlie",
+      "abreviado": "C"
+    },
+    "ordem": 3,
+    "grupoDeEquipes": "5d6407822a3b631c88b506d3"
+  },
+  {
+    "nome": {
+      "porExtenso": "Delta",
+      "abreviado": "D"
+    },
+    "ordem": 4,
+    "grupoDeEquipes": "5d6407822a3b631c88b506d3"
+  }
+]

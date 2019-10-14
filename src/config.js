@@ -3,5 +3,6 @@ export default {
         user: '',
         pass: ''
     },
-    dburi: 'mongodb://localhost/xarife'
+    dburi: 'mongodb://localhost/xarife',
+    secretOrKey: 'ILoveMyCat'
 }

@@ -1,0 +1,1 @@
+{"options":{},"indexes":[{"v":2,"key":{"_id":1},"name":"_id_","ns":"xarife.equipes"},{"v":2,"key":{"_fts":"text","_ftsx":1},"name":"nome.porExtenso_text_nome.abreviado_text","ns":"xarife.equipes","default_language":"portuguese","background":true,"weights":{"nome.abreviado":1,"nome.porExtenso":1},"language_override":"language","textIndexVersion":3}]}

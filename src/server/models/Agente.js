@@ -1,4 +1,5 @@
 import mongoose from 'mongoose'
+
 const ObjectId = mongoose.Schema.Types.ObjectId
 
 const Schema = mongoose.Schema
@@ -6,7 +7,6 @@ const Schema = mongoose.Schema
 const AgenteSchema = new Schema ({
     nome:  {
         type: String,
-        text: true,
         required: true
     },
     nomeDeGuerra: String,
@@ -18,7 +18,10 @@ const AgenteSchema = new Schema ({
     pai: String,
     mae: String,
     tipoSanguineo: String,
-    naturalidade: ObjectId,
+    naturalidade: {
+        type: ObjectId,
+        ref: 'Cidade'
+    },
     dataDeNascimento: Date,
     nacionalidade: String,
     grauDeInstrucao: String,
@@ -39,24 +42,68 @@ const AgenteSchema = new Schema ({
             }
         },
         orgaoExpeditor: String,
-        uf: ObjectId,
+        uf: {
+            type: ObjectId,
+            ref: 'Cidade'
+        },
         dataDeExpedicao: Date
     },
-    email: {
+    telefone: [{
+        tipo: String,
+        numero: Number
+    }],
+    email: [{
         tipo: String,
         endereco: String,
-    },
-    endereco: {
+    }],
+    endereco: [{
         tipo: String,
-        tipoLogradouro: String,
+        cep: Number,
+        tipoLogradouro: {
+            type: ObjectId,
+            ref: 'Logradouro'
+        },
         nomeLogradouro: String,
         numero: Number,
         bairro: String,
-        cidade: ObjectId,
-        estado: ObjectId
-    }
+        bloco: String,
+        quadra: String,
+        complemento: String,
+        cidade: {
+            type: ObjectId,
+            ref: 'Cidade'
+        },
+        estado: {
+            type: ObjectId,
+            ref: 'Estado'
+        },
+        longitude: Number,
+        latitude: Number,
+    }],
+    lotacoes: [{
+        type: ObjectId,
+        ref: 'LotacaoDeAgentes'
+    }],
+    dataDeAquisicao: Date
 })
 
 const Agente = mongoose.model('Agente', AgenteSchema)
+
+AgenteSchema.index(
+    {
+        nome: 'text',
+        nomeDeGuerra: 'text'
+    },
+    {
+        default_language: 'portuguese'
+    },
+    {
+        name: 'TextIndex',
+        weights: {
+            nome: 10,
+            nomeDeGuerra: 5
+        }
+    }
+)
 
 export default Agente

@@ -53,20 +53,22 @@ export function resetAuthentication (message = '') {
 
 export function loginRequest(data) {
     const { username, password } = data
-    return dispatch => {
+    return async dispatch => {
         dispatch(loginIsLoading())
         dispatch(resetAuthentication())
-        return axios.post('/api/login',
-        qs.stringify({
-            username: username,
-            password: password
-        }))
-        .then(response => {
+        try {
+            const response = await axios.post('/api/login',
+            qs.stringify({
+                username: username,
+                password: password
+            }))
             localStorage.setItem('token', response.data.token)
             axios.defaults.headers.common['Authorization'] = `Bearer ${response.data.token}`
             dispatch(loginSuccess())
-        })
-        .catch(error => dispatch(loginFailed(error.response.data)))
+        }
+        catch (err) {
+            dispatch(loginFailed(err.response.data))
+        }
     }
 }
 
@@ -97,15 +99,15 @@ export function tokenIsValid() {
 }
 
 export function checkAuthentication () {
-    return dispatch => {
-        return axios.get('/api/checkauthentication')
-        .then(response => {
+    return async dispatch => {
+        try {
+            const response = await axios.get('/api/checkauthentication')
             if (response.data.user) {
                 dispatch(tokenIsValid())
             }
-        })
-        .catch(error => {
+        }
+        catch (err) {
             dispatch(resetAuthentication())
-        })
+        }
     }
 }

@@ -55,6 +55,7 @@ class Agente extends React.Component {
                         <div className={classes.grow} />
                         <Button variant="contained" color="secondary">Editar</Button>
                     </Toolbar>
+                    <Typography variant="body1">{!_.isEmpty(agente.endereco) && agente.endereco[0].cidade.nome + " - " + agente.endereco[0].cidade.estado.sigla}</Typography>
                 </Paper>
             </Layout>
         )

@@ -16,6 +16,12 @@
                         "extractCss": "./dist/client/main.css",
                         "keepImport": true
                     }
+                ],
+                [
+                    "transform-runtime",
+                    {
+                        "regenerator": true
+                    }
                 ]
             ],
             "presets": [
