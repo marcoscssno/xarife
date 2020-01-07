@@ -9,10 +9,12 @@ export const TOKEN_IS_INVALID = 'TOKEN_IS_INVALID'
 export const TOKEN_IS_VALID = 'TOKEN_IS_VALID'
 export const TOKEN_IS_NULL = 'TOKEN_IS_NULL'
 export const DEAUTHENTICATE = 'DEAUTHENTICATE'
+export const RECEIVE_USERNAME = 'RECEIVE_USERNAME'
 
-export function loginSuccess() {
+export function loginSuccess(userId) {
     return {
-        type: LOGIN_SUCCESS
+        type: LOGIN_SUCCESS,
+        userId
     }
 }
 
@@ -30,9 +32,10 @@ export function deauthenticate(message) {
     }
 }
 
-export function logoutSuccess() {
+export function logoutSuccess(userId) {
     return {
-        type: LOGOUT_SUCCESS
+        type: LOGOUT_SUCCESS,
+        userId
     }
 }
 
@@ -64,7 +67,7 @@ export function loginRequest(data) {
             }))
             localStorage.setItem('token', response.data.token)
             axios.defaults.headers.common['Authorization'] = `Bearer ${response.data.token}`
-            dispatch(loginSuccess())
+            dispatch(loginSuccess(response.data.data.userId))
         }
         catch (err) {
             dispatch(loginFailed(err.response.data))
@@ -92,9 +95,10 @@ export function tokenIsNull() {
     }
 }
 
-export function tokenIsValid() {
+export function tokenIsValid(userId) {
     return {
-        type: TOKEN_IS_VALID
+        type: TOKEN_IS_VALID,
+        userId
     }
 }
 
@@ -102,12 +106,31 @@ export function checkAuthentication () {
     return async dispatch => {
         try {
             const response = await axios.get('/api/checkauthentication')
-            if (response.data.user) {
-                dispatch(tokenIsValid())
+            if (response.data._id) {
+                dispatch(tokenIsValid(response.data._id))
             }
         }
         catch (err) {
             dispatch(resetAuthentication())
         }
+    }
+}
+
+export function getUserName (userId) {
+    return async dispatch => {
+        try {
+            const response = await axios.get('/api/userName/' + userId)
+            dispatch(receiveUserName(response.data.userName))
+        }
+        catch (err) {
+            throw err
+        }
+    }
+}
+
+export function receiveUserName(userName) {
+    return {
+        type: RECEIVE_USERNAME,
+        userName
     }
 }

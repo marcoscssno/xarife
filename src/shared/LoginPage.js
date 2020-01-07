@@ -62,7 +62,7 @@ class LoginPage extends React.Component {
         return (
             <div>
                 <Grid container direction="row" justify="center" alignItems="center" className={classes.root}>
-                    <Grid item xs={12} sm={12} md={4}>
+                    <Grid item xs={12} sm={8} md={4}>
                         <LoginForm onSubmit={this.submit} />
                     </Grid>
                 </Grid>

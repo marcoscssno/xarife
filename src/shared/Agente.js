@@ -10,6 +10,7 @@ import { withStyles } from '@material-ui/core/styles'
 import Paper from '@material-ui/core/Paper';
 import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
+import Grid from '@material-ui/core/Grid';
 
 import { Link, withRouter } from 'react-router-dom'
 
@@ -23,6 +24,9 @@ const styles = theme => ({
     },
     grow: {
         flexGrow: 1
+    },
+    paddedDiv: {
+        padding: theme.spacing.unit * 3,
     },
     progress: {
         position: 'absolute',
@@ -46,16 +50,25 @@ class Agente extends React.Component {
                 {message && <p>{message}</p>}
                 <Paper className={classes.root}>
                     <Toolbar>
-                        <div><Typography variant="h6" noWrap>
-                            {agente.nome}
-                        </Typography>
-                        <Typography variant="subtitle2" noWrap>
-                            {_.replace(agente.matricula, /(\d{3})(\d{3})(\d{1})([0-9a-zA-Z])/g, "\$1.\$2.\$3\-\$4")}
-                        </Typography></div>
+                        <div>
+                            <Typography variant="h6" noWrap>
+                                {agente.nome}
+                            </Typography>
+                            <Typography variant="subtitle2" noWrap>
+                                {_.replace(agente.matricula, /(\d{3})(\d{3})(\d{1})([0-9a-zA-Z])/g, "\$1.\$2.\$3\-\$4")}
+                            </Typography>
+                        </div>
                         <div className={classes.grow} />
-                        <Button variant="contained" color="secondary">Editar</Button>
+                        <Button variant="contained" color="secondary" component={Link} to={`/agente/${agente._id}/editar`}>Editar</Button>
                     </Toolbar>
-                    <Typography variant="body1">{!_.isEmpty(agente.endereco) && agente.endereco[0].cidade.nome + " - " + agente.endereco[0].cidade.estado.sigla}</Typography>
+                    <div className={classes.paddedDiv}>
+                        <Grid container className="grow" spacing={16}>
+                            <Grid item xs={12}>
+                                {!_.isEmpty(agente.endereco) && <Typography variant="body1">{agente.endereco[0].cidade.nome + " - " + agente.endereco[0].cidade.estado.sigla}</Typography>}
+                                {!_.isEmpty(agente.lotacoes) && agente.lotacoes.map((lotacao, index) => <Typography key={index} variant="body1">{lotacao.divisao.nome.porExtenso}</Typography>)}
+                            </Grid>
+                        </Grid>
+                    </div>
                 </Paper>
             </Layout>
         )

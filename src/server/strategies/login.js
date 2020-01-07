@@ -24,7 +24,7 @@ const MyLocalStrategy = new LocalStrategy ({
             if ( err ) { return done( err )}
 
             if ( ! same ) {
-                const error = new Error( 'Incorrect username or password' )
+                const error = new Error( 'Nome de usuário ou senha incorreto(a)(s)' )
                 error.name = 'IncorrectCredentialsError'
 
                 return done( error )
@@ -39,11 +39,9 @@ const MyLocalStrategy = new LocalStrategy ({
                     return done(error)
                 }
                 else {
-                    
                     const data = {
-                        username
+                        userId: user._id
                     }
-                    
                     return done(null, token, data)
                 }
             })

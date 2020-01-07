@@ -26,11 +26,16 @@ class PrivateRoute extends React.Component {
     }
 
     handleOpenDialog = () => {
-        this.setState({open: true})
+        this.setState({ open: true })
     }
 
     handleCloseDialog = () => {
-        this.setState({open: false})
+        this.setState({ open: false })
+    }
+
+    componentDidMount() {
+        const { checkAuthentication } = this.props
+        checkAuthentication()
     }
 
     componentDidUpdate() {
@@ -59,8 +64,7 @@ class PrivateRoute extends React.Component {
                                     onIdle={this.onIdle}
                                     onAction={this.onAction}
                                     debounce={250}
-                                    timeout={1000 * 300} />
-
+                                    timeout={30000} />
                                 <Component {...props} />
                             </div>
                         )
@@ -83,11 +87,11 @@ class PrivateRoute extends React.Component {
                     aria-labelledby="alert-dialog-title"
                     aria-describedby="alert-dialog-description"
                 >
-                    <DialogTitle id="alert-dialog-title">{"Parece que você ficou ausente."}</DialogTitle>
+                    <DialogTitle id="alert-dialog-title">Parece que você ficou ausente.</DialogTitle>
                     <DialogContent>
                         <DialogContentText id="alert-dialog-description">
                             Você foi desconectado por questões de segurança. Por favor, entre novamente.
-            </DialogContentText>
+                        </DialogContentText>
                     </DialogContent>
                     <DialogActions>
                         <Button onClick={this.handleCloseDialog} color="primary" autoFocus>

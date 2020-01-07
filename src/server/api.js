@@ -184,4 +184,15 @@ router.route('/logradouro')
         }
     })
 
+router.route('/userName/:userId').get(async (req, res) => {
+    try {
+        const userId = req.params.userId
+        const user = await User.findById(userId, 'username').exec()
+        return res.json({userName: user.username})
+    }
+    catch (err) {
+        res.send(err)
+    }
+})
+
 export default router

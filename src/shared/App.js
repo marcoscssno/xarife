@@ -5,11 +5,13 @@ import { connect } from 'react-redux'
 import { addOne, takeOne } from './actions/counter'
 import { logoutRequest } from './actions/auth'
 
-import { Route, withRouter } from 'react-router-dom'
+import { Route, Switch, withRouter } from 'react-router-dom'
 
 import Agentes from './Agentes'
 import Escala from './Escala'
 import Agente from './Agente'
+import CadastrarAgente from './CadastrarAgente'
+import EditarAgente from './EditarAgente'
 import HomePage from './HomePage'
 import LoginPage from './LoginPage'
 import Divisoes from './Divisoes'
@@ -21,12 +23,16 @@ import CssBaseLine from '@material-ui/core/CssBaseLine'
 
 const App = (props) => (
     <CssBaseLine>
-        <Route path='/login' component={LoginPage} />
-        <PrivateRoute exact path='/' component={HomePage} />
-        <PrivateRoute exact path='/agente/:id' component={Agente} />
-        <PrivateRoute exact path='/agentes' component={Agentes} />
-        <PrivateRoute exact path='/escala' component={Escala} />
-        <PrivateRoute exact path='/divisoes' component={Divisoes} />
+        <Switch>
+            <PrivateRoute exact path='/agente/cadastrar' component={CadastrarAgente} />
+            <PrivateRoute exact path='/agente/:id' component={Agente} />
+            <PrivateRoute exact path='/agente/:id/editar' component={EditarAgente} />
+        </Switch>
+            <Route path='/login' component={LoginPage} />
+            <PrivateRoute exact path='/' component={HomePage} />
+            <PrivateRoute exact path='/agentes' component={Agentes} />
+            <PrivateRoute exact path='/escala' component={Escala} />
+            <PrivateRoute exact path='/divisoes' component={Divisoes} />
     </CssBaseLine>
 )
 

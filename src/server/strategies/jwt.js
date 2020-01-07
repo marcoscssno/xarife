@@ -9,7 +9,7 @@ opts.secretOrKey = 'ILoveMyCat'
 opts.passReqToCallback = true
 
 const MyJwtStrategy = new JwtStrategy(opts, function(req, jwt_payload, done) {
-    User.findById(jwt_payload.id, (err, user) => {
+    User.findById(jwt_payload.id, '_id', (err, user) => {
         if (err) {
             return done(err, false)
         }

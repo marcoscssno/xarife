@@ -120,7 +120,7 @@ class Agentes extends React.Component {
                                 }}
                             />
                         </div>
-                        <Button variant="contained" color="secondary">Cadastrar</Button>
+                        <Button variant="contained" color="secondary" component={Link} to="/agente/cadastrar">Cadastrar</Button>
                     </Toolbar>
                     {!_.isEmpty(agentes) &&
                         <Table className={classes.table}>
